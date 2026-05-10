@@ -22,15 +22,15 @@ This guide provides instructions for installing and setting up the fan-made game
 
 <AtAGlance
   title="Sonic Adventure Blast 2 (UWP)"
-  summary="Fan port; requires NTFS USB for game data and works on Series X|S only."
+  summary="Fan port, requires NTFS USB for game data and works on Series X|S only."
   testedOn="03/25/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required' },
     { label: 'Storage', value: 'NTFS USB required for Settings/res folders' },
     { label: 'User folder', value: 'USB:\\sab2 with Settings and res at root' },
-    { label: 'Difficulty', value: 'Intermediate — ~15–20 minutes' },
+    { label: 'Difficulty', value: 'Intermediate - ~15–20 minutes' },
     { label: 'BIOS/keys', value: 'None' },
-    { label: 'Controllers', value: 'Xbox gamepad; set app type to Game' },
+    { label: 'Controllers', value: 'Xbox gamepad, set app type to Game' },
   ]}
   works={[
     'USB root \\sab2\\Settings and \\sab2\\res structure',
@@ -42,7 +42,7 @@ This guide provides instructions for installing and setting up the fan-made game
     'Wrong USB structure prevents launch',
     'Missing NTFS permissions blocks access',
   ]}
-  notes="Keep USB plugged in before launch; ensure Settings/res are directly inside \\sab2."
+  notes="Keep USB plugged in before launch, ensure Settings/res are directly inside \\sab2."
 />
 
 :::caution
@@ -65,17 +65,13 @@ Before you begin, ensure the following conditions are met:
 
 ## Step 1: Downloading Files
 
-The necessary files are obtained from the official GitHub repository releases page.
+You need files from **two** places: the UWP installer (WorleyDL port) and the **game data** from the upstream PC project (those are not bundled in the UWP release).
 
-1.  **Go to Xbox Dev Store:** See the [Step 1: Downloading Files](#step-1-downloading-files) section below for download instructions.
-2.  **Find SAB2:** Go to the "Games" tab and scroll down to find "Sonic Adventure Blast 2 (SAB2)".
-3.  **Go to Official Page:** *Instead of clicking "Download"*, click the **"Official Page"** button. This will take you to the GitHub repository (`worleydl/SAB2-uwp`).
-4.  **Navigate to Releases:** On the GitHub page, find the "Releases" section (usually on the right side) and click on the latest release (e.g., "SAB2-UWP v1.0.0").
-5.  **Download Required Files:** Under the "Assets" section of the release, download the following three files:
-    *   `SAB2_1.0.0_x64.msixbundle` (The main application package)
-    *   `Microsoft.VCLibs.x64.14.00.appx` (The necessary dependency)
-    *   `SonicAdventureBlast2_1.1.zip` (The game content files - *Note: The version number might differ from the main package*)
-6.  **Save Files:** Save these three files to a known location on your PC.
+1.  **UWP app (Emulation Revival & GitHub):** Open [Sonic Adventure Blast 2 on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/ports.html#sab2). Use **Official Page** to reach [worleydl/SAB2-uwp](https://github.com/worleydl/SAB2-uwp) and open its latest **Releases** page. Under **Assets**, download exactly:
+    *   `SAB2_*.msixbundle` (for example `SAB2_1.0.0.0_x64.msixbundle`)
+    *   `Microsoft.VCLibs.x64.14.00.appx`
+2.  **Game content (upstream):** Open [TurtleMan64/SAB2 releases](https://github.com/TurtleMan64/SAB2/releases). Download the PC game archive (for example `SonicAdventureBlast2_1.1.zip`, the name can change with upstream versions). This ZIP contains the `Settings` and `res` folders the UWP port expects on your USB drive.
+3.  **Save everything** to a folder on your PC.
 
 :::tip
 If you enjoy WorleyDL's ports, consider supporting their work via their Ko-fi link (https://ko-fi.com/worleydl).
@@ -85,10 +81,10 @@ If you enjoy WorleyDL's ports, consider supporting their work via their Ko-fi li
 
 The game's core content (`Settings` and `res` folders) needs to be placed on your external USB drive.
 
-1.  **Extract Game Content:** On your PC, locate the `SonicAdventureBlast2_1.1.zip` file you downloaded and extract its contents using a tool like 7-Zip or Windows Explorer's built-in extractor. This will create a folder (e.g., `SonicAdventureBlast2_1.1`) containing `Settings` and `res` subfolders.
+1.  **Extract game content:** Extract the TurtleMan64 **SonicAdventureBlast2_*.zip** you downloaded. Inside you should see `Settings` and `res` folders (possibly inside one top-level folder).
 2.  **Create `sab2` Folder:** Connect your prepared external USB drive to your PC. Create a new folder directly in the *root directory* of the USB drive and name it exactly `sab2`.
 3.  **Copy Game Folders:**
-    *   Open the extracted `SonicAdventureBlast2_1.1` folder.
+    *   Open the folder that contains `Settings` and `res`.
     *   Select *both* the `Settings` folder and the `res` folder.
     *   Copy these two folders.
     *   Navigate into the `sab2` folder you created on your USB drive.
@@ -102,7 +98,7 @@ Use the Xbox Device Portal to install the application package and its dependency
 1.  **Access Dev Portal:** On your PC, open a web browser and navigate to the Remote Access URL displayed in Dev Home on your Xbox.
 2.  **Bypass Security Warning:** If necessary, bypass the browser's security warning.
 3.  **Navigate to "Add":** Under "My games & apps", click "Add".
-4.  **Upload MSIXBUNDLE:** Click "Choose File" (or drag and drop) and select the `SAB2_1.0.0_x64.msixbundle` file from your PC.
+4.  **Upload MSIXBUNDLE:** Click "Choose File" (or drag and drop) and select the `SAB2_*.msixbundle` from the WorleyDL/SAB2-uwp release (for example `SAB2_1.0.0.0_x64.msixbundle`).
 5.  **Upload Dependency:** Click "Next". On the dependency page:
     *   Click "Choose File" (or drag and drop).
     *   Select the `Microsoft.VCLibs.x64.14.00.appx` file.

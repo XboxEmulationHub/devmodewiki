@@ -18,15 +18,15 @@ This guide provides instructions for installing and running a Proof of Concept (
 
 <AtAGlance
   title="ChonkyStation 3 (POC)"
-  summary="Highly experimental PS3 proof-of-concept; expect crashes and limited compatibility."
+  summary="Highly experimental PS3 proof-of-concept, expect crashes and limited compatibility."
   testedOn="03/23/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required (Retail not supported)' },
-    { label: 'Storage', value: 'Internal LocalState only; needs space for sys files' },
-    { label: 'User folder', value: 'LocalAppData\\xbox-uwp-sdl2-starter\\LocalState\\dev_hdd0' },
-    { label: 'Difficulty', value: 'Advanced — 30+ minutes' },
-    { label: 'BIOS/keys', value: 'Uses provided sys folder files; no retail firmware flashing' },
-    { label: 'Controllers', value: 'Xbox gamepad; limited feature set' },
+    { label: 'Storage', value: 'Internal LocalState only, needs space for sys files' },
+    { label: 'User folder', value: 'LocalAppData\\[Chonkystation 3 app]\\LocalState\\dev_hdd0' },
+    { label: 'Difficulty', value: 'Advanced - 30+ minutes' },
+    { label: 'BIOS/keys', value: 'Uses provided sys folder files, no retail firmware flashing' },
+    { label: 'Controllers', value: 'Xbox gamepad, limited feature set' },
   ]}
   works={[
     'Single .elf can be loaded from dev_hdd0\\game',
@@ -34,11 +34,11 @@ This guide provides instructions for installing and running a Proof of Concept (
     'Changing app type to Game improves stability',
   ]}
   issues={[
-    'Crashes common; POC only',
-    'Only one ELF at a time; no game list',
+    'Crashes common, POC only',
+    'Only one ELF at a time, no game list',
     'Internal storage limits large assets',
   ]}
-  notes="Use strictly for experimentation; compatibility is very low."
+  notes="Use strictly for experimentation, compatibility is very low."
 />
 
 **Ported By:** @MoonPower
@@ -47,28 +47,28 @@ This guide provides instructions for installing and running a Proof of Concept (
 
 *   **Xbox in Developer Mode:** Your Xbox Series S/X must be in Developer Mode.
 *   **PC:** A Windows PC for file transfers, accessing the Xbox Dev Portal, and potentially using RPCS3.
-*   **ChonkyStation 3 UWP Files:** See the [Installation and Setup](#installation-and-setup) section below for download instructions.  This will contain all necessary files for setup.
-    *   `xbox-uwp-sdl2-starter_1.0.6.0_x64.appx` (or a similarly named `.appx` file) - The main application package.
-    *   An `x64` folder - Contains dependency files.
-    *   A `sys` folder - Contains essential system files.
+*   **ChonkyStation 3 UWP package:** Download from [Experimental apps on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/experimental-apps.html#chonkystation3). You get **`ChonkyStation-UWP-*.zip`**, which currently includes:
+    *   **`ChonkyStation3_*_x64.msixbundle`** - main installer (sideload this first in Device Portal).
+    *   **`Dependencies.zip`** - extract it, inside **`Dependencies\x64`** you add **three** packages in order when prompted: `Microsoft.NET.Native.Framework.2.2.appx`, `Microsoft.NET.Native.Runtime.2.2.appx`, and `Microsoft.VCLibs.x64.14.00.appx` (filenames can change slightly by release - add every `.appx` you find there).
+    *   **`sys`** - system files to copy into the app `LocalState` (see below).
+    *   **`donut.elf`** - sample homebrew you can try in `dev_hdd0\game`.
 *  **PKG GUI, TrueAncestor Resigner, PS3 ISO Tools, PSN Liberator, and RPCS3:** If you wish to convert PS3 games, you will need some or all of these tools.
 
 ## Installation and Setup
 
-### Part 1: Install the Appx and Dependencies
+### Part 1: Install the MSIX bundle and dependencies
 
-1.  **Extract Files:** Extract the downloaded ChonkyStation 3 UWP .zip file to a location on your PC.  *Crucially*, also extract the contents of the `x64` folder (which contains the dependencies).
+1.  **Extract the store ZIP:** Extract `ChonkyStation-UWP-*.zip` on your PC. Extract **`Dependencies.zip`** as well so you have `Dependencies\x64\*.appx`.
 
-2.  **Access Xbox Dev Portal:** On your PC, open a web browser and access the Xbox Device Portal (you should have the URL from when you enabled Developer Mode).
+2.  **Access Xbox Dev Portal:** On your PC, open a web browser and access the Xbox Device Portal (URL from Dev Home / Remote Access).
 
-3.  **Install Appx:**
+3.  **Install the main package:**
     *   In the Dev Portal, go to "My games & apps" and click "Add".
-    *   Click "Choose file" and select the `xbox-uwp-sdl2-starter_1.0.6.0_x64.appx` file (or the similarly named `.appx` file).
+    *   Choose the **`ChonkyStation3_*_x64.msixbundle`** from the extracted folder.
     *   Click "Next".
 
-4.  **Install Dependencies:**
-    *   You'll be prompted to add dependencies.
-    *   Click "Choose file" and add *all* the dependency files from the extracted `x64` folder, *one by one*.
+4.  **Install dependencies:**
+    *   When prompted, add **each** `.appx` from **`Dependencies\x64`**, one at a time (there should be **three** for the current mirror build).
     *   Click "Start" to begin the installation.
 
 ### Part 2: Copy System Files and Prepare Game Folder
@@ -78,13 +78,13 @@ This guide provides instructions for installing and running a Proof of Concept (
 2. **Access Xbox Dev Portal:** Open the Xbox Device Portal in your web browser.
 3. **Copy the System Files**
       *  Go to "File explorer".
-     *   Navigate to: `LocalAppData\xbox-uwp-sdl2-starter\LocalState`.
+     *   Navigate to: `LocalAppData` - the folder for the **Chonkystation 3** UWP app (long package name - use the one that appears after install) - `LocalState`.
      * Click **Create new folder** and name it `dev_hdd0`.
      * Navigate inside the `dev_hdd0` and create a folder and name it `game`.
 4. **Transfer System Files:**
    *   Go back to the extracted ChonkyStation 3 UWP folder on your PC. Find the `sys` folder.
     *   *Copy all the files* inside the `sys` folder.
-   * In the **Dev Portal**, navigate to `LocalAppData\xbox-uwp-sdl2-starter\LocalState`.
+   * In the **Dev Portal**, navigate to the same app’s `LocalAppData\…\LocalState` path as above.
     *   *Paste* the copied files into the `LocalState` folder.
 
 ### Part 3: Add a Game (.elf)
@@ -93,7 +93,7 @@ This guide provides instructions for installing and running a Proof of Concept (
 
 2.  **Navigate to `dev_hdd0/game`:**
      *   Go to "File explorer".
-     *   Navigate to:  `LocalAppData\xbox-uwp-sdl2-starter\LocalState\dev_hdd0\game`.
+     *   Navigate to:  `LocalAppData\[Chonkystation 3 package]\LocalState\dev_hdd0\game`.
 
 3. **Upload `.elf`:** Place your desired game's `.elf` file into the `dev_hdd0\game` folder. You can do this by using the "Choose file" and "Upload" options in the Dev Portal, or by using FTP. *Do not rename the file*. The emulator will load the *first* `.elf` file it finds in this directory.
 
@@ -104,7 +104,7 @@ This guide provides instructions for installing and running a Proof of Concept (
 ## How to Test Other Games
 
 *   **ELF Format:** Games *must* be in `.elf` format.
-*   **Location:** Place the game's `.elf` file in the `dev_hdd0/game` folder within the app's `LocalState` folder.  Only *one* game can be loaded at a time due to the POC nature of the build; the emulator will load the first .elf` it finds. You *must* remove or rename any other `.elf` files in that directory.
+*   **Location:** Place the game's `.elf` file in the `dev_hdd0/game` folder within the app's `LocalState` folder.  Only *one* game can be loaded at a time due to the POC nature of the build. The emulator will load the first `.elf` it finds. You *must* remove or rename any other `.elf` files in that directory.
 
 ## Creating .elf Files (from PS3 Games)
 
@@ -143,7 +143,7 @@ There are multiple methods to obtain `.elf` files from PS3 games:
 
 **Method 4: Using RPCS3 (PC Emulator)**
 
-1.  **Decrypt Game:** Ensure your PS3 game is decrypted and in folder format. You can confirm this by navigating to the game folder; you should see a `PS3_GAME` folder, and inside that, a `USRDIR` folder. The `EBOOT.BIN` file will be inside `USRDIR`.  *Not all games require a separate `.edat` file for decryption. Some games use a `key.edat`, others may use a differently named `.edat` file (e.g., `drm.edat`), and some games don't require one at all.  The `.edat` file, if needed, is usually found in the `USRDIR` folder.*
+1.  **Decrypt Game:** Ensure your PS3 game is decrypted and in folder format. You can confirm this by navigating to the game folder. You should see a `PS3_GAME` folder, and inside that, a `USRDIR` folder. The `EBOOT.BIN` file will be inside `USRDIR`.  *Not all games require a separate `.edat` file for decryption. Some games use a `key.edat`, others may use a differently named `.edat` file (e.g., `drm.edat`), and some games don't require one at all.  The `.edat` file, if needed, is usually found in the `USRDIR` folder.*
 
 2.  **RPCS3:** Download and Open the [RPCS3 emulator](https://rpcs3.net/) on your PC.
 

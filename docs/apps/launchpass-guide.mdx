@@ -18,15 +18,15 @@ LaunchPass is a Frontend that is capable of launching ROMs in most Emulators on 
 
 <AtAGlance
   title="LaunchPass (Frontend)"
-  summary="Frontend for emulators; NTFS USB mandatory for LaunchBox assets."
+  summary="Frontend for emulators, NTFS USB mandatory for LaunchBox assets."
   testedOn="11/14/2024"
   rows={[
     { label: 'Dev Mode', value: 'Required' },
     { label: 'Storage', value: 'NTFS USB required for LaunchBox install and ROM paths' },
     { label: 'User folder', value: 'LaunchBox installed to USB (e.g., E:\\LaunchBox)' },
-    { label: 'Difficulty', value: 'Intermediate — 20–30 minutes' },
+    { label: 'Difficulty', value: 'Intermediate - 20–30 minutes' },
     { label: 'BIOS/keys', value: 'Depends on emulators configured' },
-    { label: 'Controllers', value: 'Xbox gamepad; set app type to App (per guide) for best UX' },
+    { label: 'Controllers', value: 'Xbox gamepad, set app type to App (per guide) for best UX' },
   ]}
   works={[
     'Installs LaunchPass via Device Portal',
@@ -36,9 +36,9 @@ LaunchPass is a Frontend that is capable of launching ROMs in most Emulators on 
   issues={[
     'Wrong NTFS permissions block USB access',
     'Forgetting to set correct emulator paths breaks launching',
-    'Needs full LaunchBox folder on USB; internal storage is limited',
+    'Needs full LaunchBox folder on USB, internal storage is limited',
   ]}
-  notes="Install LaunchBox to NTFS USB before wiring emulators; double-check app/game type per instructions."
+  notes="Install LaunchBox to NTFS USB before wiring emulators, double-check app/game type per instructions."
 />
 ## Requirements Checklist
 
@@ -53,9 +53,8 @@ You will need LaunchBox to use LaunchPass.
 
 ## Setting up LaunchPass on Xbox
 
-1. On your computer, download the latest version of LaunchPass (see download instructions below).
-2. Download the latest version of Launchpass.
-3. You'll get the .MSIX file (LaunchPass)
+1. On your PC, open [LaunchPass on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/frontends.html#launchpass) and download **LaunchPass** (`LaunchPass_*_x64.msixbundle` from the releases mirror), then download **LaunchPass - Dependency files** (`Dependencies_x64.zip`).
+2. Extract `Dependencies_x64.zip` so you have a folder of **`x64` `.appx`** dependency packages (install these through Device Portal when prompted, one file at a time).
 
 ## Transfer the Files to Xbox
 
@@ -67,8 +66,8 @@ You will need LaunchBox to use LaunchPass.
 
 1. In the Device Portal, go to My Games & Apps.
 2. Click Add, then select Choose File.
-3. Upload the LaunchPass .MsixBundles file
-4. Click Next and follow the prompts to install.
+3. Select the **`LaunchPass_*.msixbundle`**, click **Next**, then add **each** dependency **`.appx`** from your extracted **`Dependencies_x64`** folder until the wizard has them all listed.
+4. Click **Start** and wait until you see **Package successfully registered**.
 5. Go to Dev Mode on your Xbox then Select LaunchPass and click Guide button on your controller > View Details
 Turn LaunchPass Game to App to be able to use Launchpass properly.
 

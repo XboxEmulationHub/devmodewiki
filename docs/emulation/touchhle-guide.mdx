@@ -19,14 +19,14 @@ This guide provides instructions for installing and setting up TouchHLE, an emul
 
 <AtAGlance
   title="TouchHLE (iOS ≤3)"
-  summary="Highly experimental iOS emulator; external USB is mandatory."
+  summary="Highly experimental iOS emulator, external USB is mandatory."
   testedOn="08/18/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required (Retail not supported)' },
     { label: 'Storage', value: 'External NTFS USB required (root holds assets and app.ipa)' },
     { label: 'User folder', value: 'USB root with touchHLE_dylibs, touchHLE_fonts, iOS folder' },
-    { label: 'Difficulty', value: 'Intermediate — about 20–30 minutes' },
-    { label: 'BIOS/keys', value: 'No BIOS; requires decrypted IPA renamed to app.ipa' },
+    { label: 'Difficulty', value: 'Intermediate - about 20–30 minutes' },
+    { label: 'BIOS/keys', value: 'No BIOS, requires decrypted IPA renamed to app.ipa' },
     { label: 'Controllers', value: 'Xbox gamepad emulates touch/tilt' },
   ]}
   works={[
@@ -35,9 +35,9 @@ This guide provides instructions for installing and setting up TouchHLE, an emul
     'Uses PC assets copied to USB for required files',
   ]}
   issues={[
-    'Very limited compatibility; alpha quality',
+    'Very limited compatibility, alpha quality',
     'Skip update prompt in-app for now',
-    'USB-only; no LocalState support',
+    'USB-only, no LocalState support',
   ]}
   notes="Rename your game to app.ipa and place it at USB root alongside the required folders."
 />
@@ -68,10 +68,10 @@ You will need to download two separate packages: the UWP application for the Xbo
 
 ### 1.1. Download the TouchHLE UWP App
 
-1.  **Download TouchHLE for Xbox:** See the [Step 2: Install via Device Portal](#step-2-install-via-device-portal) section below for download instructions.
-2.  **Find TouchHLE:** Navigate to the **"Emulators"** tab and find **"TouchHLE (ALPHA)"**.
-3.  **Download:** Click the **"Download"** button. This downloads a `.zip` file containing the UWP app and dependencies.
-4.  **Extract Files:** On your PC, extract the downloaded `.zip` file. Inside, you should find the main `.msixbundle` or `.appx` file and several dependency `.appx` files.
+1.  **Open Emulation Revival Store:** Go to [Emulators on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html).
+2.  **Find TouchHLE:** Scroll the list until you locate **TouchHLE (ALPHA)**.
+3.  **Download package:** Click **Download** to get the `.zip` containing the UWP build and dependencies.
+4.  **Extract files:** On your PC, extract the downloaded `.zip`. Inside, you should find the main `.msixbundle` or `.appx` and dependency `.appx` files.
 
 ### 1.2. Download the TouchHLE PC Version (for required assets)
 
@@ -167,4 +167,4 @@ You can find a list of all available options (like `--scale-hack`, controller bu
     *   Ensure your `.ipa` file is renamed to exactly `app.ipa` and is located at the **root** of your USB drive.
     *   Verify the game is decrypted and compatible with iOS 3 or under.
     *   Check that the `touchHLE_dylibs`, `touchHLE_fonts`, and other required files are correctly placed on the USB drive as described in **Step 4**.
-*   **Game layout is broken (e.g., horizontal instead of vertical):** This may happen if you accept the in-app update. For now, it is best to **decline the update** when prompted. If you've already updated, you may need to reinstall the original version from the Dev Store.
+*   **Game layout is broken (e.g., horizontal instead of vertical):** This may happen if you accept the in-app update. For now, it is best to **decline the update** when prompted. If you've already updated, you may need to reinstall the original version from the Emulation Revival Store.

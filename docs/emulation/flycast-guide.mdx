@@ -16,15 +16,15 @@ import AtAGlance from '@site/src/components/AtAGlance';
 
 <AtAGlance
   title="Flycast (Dreamcast/Naomi)"
-  summary="Dreamcast/Naomi emulator; best with NTFS USB, textures internal only."
+  summary="Dreamcast/Naomi emulator, best with NTFS USB, textures internal only."
   testedOn="05/07/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required (Retail not supported)' },
-    { label: 'Storage', value: 'USB NTFS recommended for ROMs/BIOS; textures must be internal' },
+    { label: 'Storage', value: 'USB NTFS recommended for ROMs/BIOS, textures must be internal' },
     { label: 'User folder', value: 'LocalAppData\\Flycast\\LocalState (Data\\textures for packs)' },
-    { label: 'Difficulty', value: 'Intermediate — about 15–20 minutes' },
+    { label: 'Difficulty', value: 'Intermediate - about 15–20 minutes' },
     { label: 'BIOS/keys', value: 'dc_boot optional but recommended for compatibility' },
-    { label: 'Controllers', value: 'Xbox gamepad; set app type to Game' },
+    { label: 'Controllers', value: 'Xbox gamepad, set app type to Game' },
   ]}
   works={[
     'Supports Dreamcast/Naomi/Atomiswave formats',
@@ -57,8 +57,8 @@ Flycast does **not** support Hikaru or SEGA System SP games.
 ## Installing Flycast on Xbox Dev Mode
 
 1. **Prepare Files:**
-   - Get the Flycast `.appx` file (e.g., `flycast_2.5.appx`).
-   - (Optional) Get a Dreamcast BIOS (dc_boot) file for better compatibility.
+   - Download Flycast from [Emulators on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html#flycast) or the [official Flycast releases](https://github.com/flyinghead/flycast/releases). Current store builds ship a single **`flycast-*.appx`** (for example `flycast-2.6.appx`) - sideload that through Device Portal, no extra dependency pack is required for that release layout.
+   - (Optional) Get a Dreamcast BIOS (`dc_boot.bin` / `dc_flash.bin`) for better compatibility.
 
 2. **Upload BIOS to USB (optional but recommended):**
    - Create a `Sega - Dreamcast` games folder on your USB.
@@ -67,12 +67,12 @@ Flycast does **not** support Hikaru or SEGA System SP games.
 3. **Install Flycast:**
    - Enable **Xbox Device Portal** in your Xbox Dev Mode settings.
    - On your PC, open a web browser and enter the Xbox Device Portal URL.
-   - Go to **My games & apps** → **Add**.
+   - Go to **My games & apps** - **Add**.
    - Drag and drop the Flycast `.appx` file, click **Next**, then **Start**.
    - Once installed, click **Done**.
 
 4. **Change App to Game Mode:**
-   - On Xbox, hover over Flycast → press **Select** → **View Details**.
+   - On Xbox, hover over Flycast - press **Select** - **View Details**.
    - Change it from **App** to **Game**.
 
 ---
@@ -81,10 +81,10 @@ Flycast does **not** support Hikaru or SEGA System SP games.
 
 **Where to upload your ROMs:**
 
-- Xbox Device Portal → **File explorer** → `LocalAppData\Flycast\LocalState`
+- Xbox Device Portal - **File explorer** - `LocalAppData\Flycast\LocalState`
   - Create a `games` folder here.
   - Upload Dreamcast ROMs.
-  - You can upload `.zip` files — the portal will prompt you to unzip.
+  - You can upload `.zip` files - the portal will prompt you to unzip.
 
 **For cheats, VMUs, etc.:**
 
@@ -96,11 +96,11 @@ Flycast does **not** support Hikaru or SEGA System SP games.
 ## Initial Configuration
 
 1. **Launch Flycast.**
-2. Go to **Settings** → **Content Location** → **Add**.
-3. Press **Up** on the D-pad → **A** → keep pressing **A** on **.. (Parent Directory)** until you see drives.
+2. Go to **Settings** - **Content Location** - **Add**.
+3. Press **Up** on the D-pad - **A** - keep pressing **A** on **.. (Parent Directory)** until you see drives.
 4. Select the **E:/** drive (USB)
 5. If using internal storage the default drive will be **Q:/**.
-6. Press **B** → **Select Current Directory**.
+6. Press **B** - **Select Current Directory**.
 
 ---
 
@@ -112,7 +112,7 @@ Flycast does **not** support Hikaru or SEGA System SP games.
 - **Filtering:** 16x
 - **VSync:** Enable if needed
 - **Show FPS Counter / VMU in-game:** Optional
-- **Internal Resolution:** Max for Series X; reduce on Series S for best performance
+- **Internal Resolution:** Max for Series X, reduce on Series S for best performance
 
 ---
 
@@ -136,10 +136,10 @@ Texture packs can only be loaded from the internal storage.
 2. **Upload in Xbox Portal:**
    - Upload `.zip` to:
      `Flycast\LocalState\Data\textures`
-   - Portal will ask: **Extract zip file contents to this directory?** → Click **YES**.
+   - Portal will ask: **Extract zip file contents to this directory?** - Click **YES**.
 
 3. **Enable in Flycast:**
-   - Quick Menu → **Settings** → **Video Tab** → Enable **Load Custom Textures**.
+   - Quick Menu - **Settings** - **Video Tab** - Enable **Load Custom Textures**.
 
 :::note
 If you don't see the unzip prompt in the portal, try restarting your Xbox or switching browsers.
@@ -158,7 +158,7 @@ If you don't see the unzip prompt in the portal, try restarting your Xbox or swi
 ## General Setup (do this first)
 
 1. Launch **Flycast** in Xbox Dev Mode.
-2. Go to → `Settings` → `Network`.
+2. Go to - `Settings` - `Network`.
 3. Enable **Use DCNet** (tick the checkbox).
 4. Save settings.
 5. Fully **restart Flycast**.
@@ -172,25 +172,25 @@ If you don't see the unzip prompt in the portal, try restarting your Xbox or swi
 ### ChuChu Rocket!
 - Go to **Online / Network mode**.
 - When asked:
-  - Username → type at least 3 characters.
-  - Password → type at least 3 characters.
-- Hit **OK** → you're ready to connect.
+  - Username - type at least 3 characters.
+  - Password - type at least 3 characters.
+- Hit **OK** - you're ready to connect.
 
 ---
 
 ### DeeDee Planet
 - Select **Register New User**.
-- Username → at least 6 characters.
-- Password → at least 6 characters.
-- Confirm details → connect to online.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
+- Confirm details - connect to online.
 
 ---
 
 ### Monaco GP Online
 - Select **NEW USER** on the main menu.
-- Username → at least 6 characters.
-- Password → at least 6 characters.
-- Confirm → online racing is ready.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
+- Confirm - online racing is ready.
 
 ---
 
@@ -198,35 +198,35 @@ If you don't see the unzip prompt in the portal, try restarting your Xbox or swi
 - Go to **Network** menu.
 - Press left to **Account 1**.
 - Register new user:
-  - Username → at least 6 characters.
-  - Password → at least 6 characters.
-- Save → ready to race online.
+  - Username - at least 6 characters.
+  - Password - at least 6 characters.
+- Save - ready to race online.
 
 ---
 
 ### Planet Ring
-- Username → at least 6 characters.
-- Password → at least 6 characters.
-- Privacy code → enter **any 10-digit number**.
-- Confirm → join online minigames.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
+- Privacy code - enter **any 10-digit number**.
+- Confirm - join online minigames.
 
 ---
 
 ### Toy Racer
-- Nickname → at least 3 characters.
-- Password → anything.
+- Nickname - at least 3 characters.
+- Password - anything.
 - You're set!
 
 ---
 
 ### F355 Challenge
 - IMPORTANT: Needs saved profile before going online.
-- On **main menu**, go to → **Settings** → **Game Options**.
+- On **main menu**, go to - **Settings** - **Game Options**.
 - Enter:
   - Player name.
   - Country.
-- Go to → **Car Profile** → set car name + details.
-- BACK OUT → SAVE ON THE MAIN MENU (it will ask you to save, choose **Yes**).
+- Go to - **Car Profile** - set car name + details.
+- BACK OUT - SAVE ON THE MAIN MENU (it will ask you to save, choose **Yes**).
 - To play online:
   1. Load the saved profile.
   2. Connect to online.
@@ -236,77 +236,77 @@ If you don't see the unzip prompt in the portal, try restarting your Xbox or swi
 
 ### NFL / NBA / NCAA / WSB 2K1 & 2K2, Ooga Booga
 - Go to **Network Options**.
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 - Required for online stats + leaderboards.
 
 ---
 
 ### Quake III Arena
-- Go to → **Options** → **Player**.
+- Go to - **Options** - **Player**.
 - Set player name.
 - SAVE PROFILE.
-- Before online play → always load this profile.
+- Before online play - always load this profile.
 
 ---
 
 ### Internet Game Pack
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### PBA Bowling 2001
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### Worms World Party
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### 4x4 EVO
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### Tetris Online
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### Daytona USA
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### Golf Shiyou Yo 2
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### Aero Dancing i
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### Hundred Swords
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
 ### Starlancer
-- Username → at least 6 characters.
-- Password → at least 6 characters.
+- Username - at least 6 characters.
+- Password - at least 6 characters.
 
 ---
 
@@ -315,8 +315,8 @@ If you don't see the unzip prompt in the portal, try restarting your Xbox or swi
 - **Save State Shortcut**
   - Set `Save State` to e.g., LB.
   - Set `Load State` to e.g., RB.
-  - After entering username/password, **save state at network screen** → next time, just load state.
+  - After entering username/password, **save state at network screen** - next time, just load state.
 
 - **Where to Find Matches**
-  - Join the Flycast Discord → https://discord.gg/G33xPYV9CE.
+  - Join the Flycast Discord - https://discord.gg/G33xPYV9CE.
   - Check **#dc-net** channel.

@@ -22,11 +22,11 @@ This guide provides comprehensive instructions for setting up and using Dolphin 
   testedOn="05/05/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required (Retail not supported)' },
-    { label: 'Storage', value: 'USB NTFS recommended; internal storage limited and risky to clean' },
+    { label: 'Storage', value: 'USB NTFS recommended, internal storage limited and risky to clean' },
     { label: 'User folder', value: 'USB:\\Dolphin (preferred) or LocalFolder\\[FULLNAME]\\LocalCache\\Dolphin' },
-    { label: 'Difficulty', value: 'Intermediate — about 20–30 minutes (USB method)' },
-    { label: 'BIOS/keys', value: 'None required; optional Wii NAND for menu' },
-    { label: 'Controllers', value: 'Xbox gamepad; custom mappings best synced from PC' },
+    { label: 'Difficulty', value: 'Intermediate - about 20–30 minutes (USB method)' },
+    { label: 'BIOS/keys', value: 'None required, optional Wii NAND for menu' },
+    { label: 'Controllers', value: 'Xbox gamepad, custom mappings best synced from PC' },
   ]}
   works={[
     'USB installs when NTFS permissions are set correctly',
@@ -36,7 +36,7 @@ This guide provides comprehensive instructions for setting up and using Dolphin 
   issues={[
     'Internal installs can orphan data if the app is removed',
     'Strict NAT users may need direct connect + port forwarding for Netplay',
-    'UI lag until cover art caches; USB permissions commonly mis-set',
+    'UI lag until cover art caches, USB permissions commonly mis-set',
   ]}
   notes="Use the USB method unless you have no way to format NTFS correctly."
 />
@@ -46,6 +46,10 @@ This guide provides comprehensive instructions for setting up and using Dolphin 
 :::caution
 **Read the Guides:**  Before asking for help, thoroughly read the `#dev-mode-guide` channel (presumably in a Discord server) and the USB tutorial in `#app-guides` if using USB storage.  If you're still stuck, ask for help in `#support`.
 :::
+
+## Obtaining Dolphin UWP
+
+Download **`DolphinWinRT_*_x64.msix`** from [Emulators - Dolphin on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html#dolphin) or [SternXD/dolphin releases](https://github.com/SternXD/dolphin/releases). Sideload the **`.msix`** via Device Portal -   current store builds ship a **single** package without a separate dependency step.
 
 :::info
 **Dolphin PC is Recommended:**  Think of the PC version of Dolphin as an extended settings menu for Dolphin UWP.  While not strictly *required*, Dolphin PC is extremely useful (and sometimes necessary) for many features and configurations.  This guide assumes basic familiarity with Dolphin PC. A powerful PC is *not* required for this.
@@ -186,7 +190,7 @@ Netplay allows online multiplayer for GameCube and Wii games with local multipla
 :::
 
 :::note
-**Traversal Server Latency:**  The Traversal Server *does not* add latency; it's only for connecting.
+**Traversal Server Latency:**  The Traversal Server *does not* add latency - it's only for connecting.
 :::
 
 :::note
@@ -380,7 +384,7 @@ Configuring controls directly on Xbox is currently limited to premade configurat
     2.  **Reset User Folder:** Open Dolphin, go to Settings, reset the User folder, press Select, and quit.
     3.  **Set User Folder:** Open Dolphin, go to Settings, set the User folder to the `Dolphin` folder you created, press Select, and quit.
     4.  **Set Game Path:** Open Dolphin, go to Settings, set the Game Path to your game directory on the USB, press Select, and quit.
-    5.  **Run Dolphin:** Launch Dolphin; it should now work correctly.
+    5.  **Run Dolphin:** Launch Dolphin, it should now work correctly.
 
 ### How to Fix Games Not Showing Up
 
@@ -388,7 +392,7 @@ Configuring controls directly on Xbox is currently limited to premade configurat
 *   **USB Fix:** Make sure you've correctly performed the USB fix (T1).
 *   **ROM Integrity:**  Verify that your ROM is working correctly.
 
-### My UI is Lagging; How Do I Fix It?
+### My UI is Lagging - How Do I Fix It?
 
 *   **Load Cover Art:** Scroll left or right until all your game cover art is loaded.  This should eliminate the lag.
 

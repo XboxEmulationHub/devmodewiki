@@ -14,23 +14,23 @@ import AtAGlance from '@site/src/components/AtAGlance';
 
 # Installing and Using BoxedWine on Xbox (Developer Mode)
 
-This guide explains how to install and run BoxedWine, a Windows application emulator, on an Xbox Series S/X console in Developer Mode.  BoxedWine allows you to run 32-bit Windows applications and games.  This guide is based on a YouTube tutorial by ReviveMe (https://www.youtube.com/@ReviveMe).
+This guide explains how to install and run BoxedWine, a Windows application emulator, on an Xbox Series S/X console in Developer Mode.  BoxedWine allows you to run 16-bit and 32-bit Windows applications and games (per the upstream port targeting Xbox Series Developer Mode).  This guide is based on a YouTube tutorial by ReviveMe (https://www.youtube.com/@ReviveMe).
 
 <AtAGlance
-  title="BoxedWine (32-bit Windows apps)"
-  summary="Runs 32-bit Windows apps via Wine; NTFS USB strongly recommended."
+  title="BoxedWine (16/32-bit Windows apps)"
+  summary="Runs 32-bit Windows apps via Wine, NTFS USB strongly recommended."
   testedOn="03/09/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required' },
-    { label: 'Storage', value: 'NTFS USB for app zips; internal is limited' },
-    { label: 'User folder', value: 'ZIPs live on USB; app data stored internally' },
-    { label: 'Difficulty', value: 'Intermediate — 20–30 minutes' },
+    { label: 'Storage', value: 'NTFS USB for app zips, internal is limited' },
+    { label: 'User folder', value: 'ZIPs live on USB, app data stored internally' },
+    { label: 'Difficulty', value: 'Intermediate - 20–30 minutes' },
     { label: 'BIOS/keys', value: 'None' },
-    { label: 'Controllers', value: 'Xbox gamepad; UI is cursor-driven' },
+    { label: 'Controllers', value: 'Xbox gamepad, UI is cursor-driven' },
   ]}
   works={[
     'Installs via Device Portal with dependencies',
-    'Runs zipped 32-bit apps from USB',
+    'Runs zipped 16/32-bit apps from USB',
     'Game type improves performance/stability',
   ]}
   issues={[
@@ -38,7 +38,7 @@ This guide explains how to install and run BoxedWine, a Windows application emul
     'Wrong NTFS permissions block USB access',
     '64-bit apps are unsupported',
   ]}
-  notes="Zip each 32-bit app with all needed DLLs; format USB NTFS and set permissions before install."
+  notes="Zip each 32-bit app with all needed DLLs, format USB NTFS and set permissions before install."
 />
 
 ## Prerequisites
@@ -57,11 +57,9 @@ The installation process is divided into three main parts:
 
 ### Part 1: Downloading and Preparing Files (on your PC)
 
-1.  **Download BoxedWine:**
-    *   Open a web browser and go to the "Xbox Dev Store" website.
-    *   Navigate to the section labeled "Emulators".
-    *   Locate "BoxedWine".  The description should mention "Runs 32-bit apps and games..."
-    *   Click the "Download" button.  This will download a file named `boxwine.zip`.
+1.  **Download BoxedWine from Emulation Revival:**
+    *   Open [BoxedWine on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/experimental-apps.html#boxedwine).
+    *   Click **Download**. You should get a ZIP named like `Boxedwine-UWP-*.zip` (exact version in the filename).
 
 2.  **Prepare your 32-bit Application (Example: Space Cadet Pinball):**
     *   This guide uses "Space Cadet Pinball" as an example, but you can use any 32-bit Windows application.
@@ -76,10 +74,10 @@ The installation process is divided into three main parts:
     *   Copy the .zip file containing your 32-bit application *into* this newly created folder.
     *   Safely eject the external drive from your PC.
 
-4.  **Extract the BoxedWine .zip File:**
-    *   On your PC, locate the `boxwine.zip` file you downloaded.
-    *   Right-click on the file and choose "Extract All..." (or use the equivalent extraction option provided by your .zip utility). Extract the contents to a new folder (e.g., a folder also named "boxwine").  *Do not attempt to install directly from the .zip archive.*
-    *   After extraction, you should find files including `boxwine.msixbundle` and a `Dependencies` folder within the extracted folder.
+4.  **Extract the BoxedWine ZIP:**
+    *   On your PC, locate the downloaded `Boxedwine-UWP-*.zip`.
+    *   Extract it to a new folder (keep the path simple, e.g. `Boxedwine-UWP`). Do not install straight from the ZIP in Device Portal.
+    *   Inside the extracted folder you should have the main **`.msixbundle`** and a **`Dependencies`** folder (with an `x64` subfolder of `.appx` files). Exact names can change by release, use the `.msixbundle` at the root of the extract.
 
 ### Part 2: Installing BoxedWine on Your Xbox (Using Remote Access)
 
@@ -103,20 +101,19 @@ The installation process is divided into three main parts:
 3.  **Install BoxedWine:**
     *   Once you are in the Xbox Device Portal (in your web browser), locate the "My games & apps" section.
     *   Click the "Add" button.
-    *   Click "Choose file" (or a similarly labeled button) and navigate to the extracted `boxwine` folder on your PC (where you extracted `boxwine.zip`).
-    *   Select the `boxwine.msixbundle` file and click "Open".
+    *   Click "Choose file" (or a similarly labeled button) and open the **`.msixbundle`** from your extracted `Boxedwine-UWP-*` folder (the file at the root of the extract, not inside `Dependencies`).
     *   Click "Next".
 
 4.  **Install Dependencies:**
     *   The portal will prompt you to "Choose any necessary dependencies".
     *   Click "Choose file" again.
-    *   Navigate to the `Dependencies` folder *inside* the extracted `boxwine` folder, and then go into the `x64` folder.
+    *   Go to `Dependencies\x64` inside that same extracted folder.
 
     :::danger
-    You must add *all five* dependency files, and you must do it *one by one*. Select each file individually and click "Open" for each one.
+    Add **every** `.appx` in `Dependencies\x64`, **one file per prompt** (repeat **Choose file** until each package is listed). The count can change by release. Missing one will break install.
     :::
 
-    *   After all five dependencies have been added, click "Start".
+    *   After all dependencies are added, click "Start".
 
 5.  **Wait for Installation to Complete:**
     *   The installation process will take some time.  Wait until you see the message "Package successfully registered".

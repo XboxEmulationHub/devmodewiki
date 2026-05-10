@@ -18,14 +18,14 @@ This guide explains how to set up Raze, a source port for Build engine games (li
 
 <AtAGlance
   title="RazeUWP (Build engine)"
-  summary="Build-engine port; USB recommended for games/mods with prebuilt ini."
+  summary="Build-engine port, USB recommended for games/mods with prebuilt ini."
   testedOn="03/09/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required' },
-    { label: 'Storage', value: 'NTFS USB recommended; LocalState works with zip upload' },
-    { label: 'User folder', value: 'USB:\\Raze for external; LocalState for internal' },
-    { label: 'Difficulty', value: 'Intermediate — 20–30 minutes' },
-    { label: 'BIOS/keys', value: 'None; needs original game data (GRP/RFF etc.)' },
+    { label: 'Storage', value: 'NTFS USB recommended, LocalState works with zip upload' },
+    { label: 'User folder', value: 'USB:\\Raze for external, LocalState for internal' },
+    { label: 'Difficulty', value: 'Intermediate - 20–30 minutes' },
+    { label: 'BIOS/keys', value: 'None, needs original game data (GRP/RFF etc.)' },
     { label: 'Controllers', value: 'Xbox gamepad' },
   ]}
   works={[
@@ -38,7 +38,7 @@ This guide explains how to set up Raze, a source port for Build engine games (li
     'Wrong NTFS permissions block USB access',
     'Forgetting to change save_dir for internal setup causes save errors',
   ]}
-  notes="Use the premade folder and keep game files in the expected per-title subfolders; verify NTFS permissions."
+  notes="Use the premade folder and keep game files in the expected per-title subfolders, verify NTFS permissions."
 />
 
 ## Prerequisites
@@ -46,7 +46,7 @@ This guide explains how to set up Raze, a source port for Build engine games (li
 :::info
 - **Premade USB Folder:** Download the premade USB folder from this Discord link: [https://discord.com/channels/1024833470020722760/1223422209431834684](https://discord.com/channels/1024833470020722760/1223422209431834684).  This folder contains a pre-structured `Raze` folder and a preconfigured `raze_portable.ini` file.
 - **Game Files:** You will need the original game files for the games you want to play (e.g., `DUKE3D.GRP`, `BLOOD.RFF`). These are *not* included in the premade folder.
-- **Raze:** You'll need to install the Raze application via the Xbox Dev Portal (instructions for accessing the Dev Portal are assumed to be known).
+- **Raze:** Install **`raze_*_x64.msixbundle`** from [Emulators - Raze on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html#raze) or [Raze-uwp releases](https://github.com/aerisarn/Raze-uwp/releases) via Device Portal (typically a single bundle).
 - **(Optional) Mod Files:** If you intend to use mods, you should have them downloaded and ready to go.
 :::
 
@@ -112,7 +112,7 @@ This method uses a USB drive to store game files, mods, and the Raze configurati
 
 5.  **Save and Reupload:** Save your modified `raze_portable.ini` to your PC, then using the **Dev Portal**, upload and replace the `raze_portable.ini` back into the `LocalState` folder on your Xbox.
 
-6.  **Launch and Play:** Launch Raze; your mods should be loaded for the specified game.
+6.  **Launch and Play:** Launch Raze, your mods should be loaded for the specified game.
 
 ## Internal Setup
 
