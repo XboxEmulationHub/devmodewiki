@@ -26,15 +26,15 @@ XBSX2 is an emulator that allows you to play PlayStation 2 (PS2) games on your X
 
 <AtAGlance
   title="XBSX2 (PS2)"
-  summary="NTFS USB recommended for games and BIOS; PS2 BIOS required."
+  summary="NTFS USB recommended for games and BIOS, PS2 BIOS required."
   testedOn="09/06/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required (Retail not supported)' },
-    { label: 'Storage', value: 'USB NTFS recommended; internal LocalState/D: works but limited' },
-    { label: 'User folder', value: 'Store BIOS/games on USB; LocalState/D: usable if needed' },
-    { label: 'Difficulty', value: 'Intermediate — about 20–30 minutes' },
+    { label: 'Storage', value: 'USB NTFS recommended, internal LocalState/D: works but limited' },
+    { label: 'User folder', value: 'Store BIOS/games on USB, LocalState/D: usable if needed' },
+    { label: 'Difficulty', value: 'Intermediate - about 20–30 minutes' },
     { label: 'BIOS/keys', value: 'PS2 BIOS required to boot games' },
-    { label: 'Controllers', value: 'Xbox gamepad; supports custom mappings' },
+    { label: 'Controllers', value: 'Xbox gamepad, supports custom mappings' },
   ]}
   works={[
     'High-res rendering, HD textures, 60fps patches on Series X/S',
@@ -55,7 +55,7 @@ XBSX2 is an emulator that allows you to play PlayStation 2 (PS2) games on your X
 Make sure you have an Xbox Series X or Series S. Note: Xbox One can run some PS2 games, but it's not powerful enough for most of them.
 
 ### External USB Drive (Optional but Highly Recommended)
-You will need a properly formatted USB drive to store the BIOS, games and other files. The USB drive must be formatted in NTFS and have the correct permissions - see the Dev Mode Setup Guide for the steps. We recommend using an external SSD for smoother performance when using HD textures or large games.
+You will need a properly formatted USB drive to store the BIOS, games and other files. The USB drive must be formatted in NTFS and have the correct permissions - see the [Xbox Developer Mode Setup](/docs/xbox-setup/xbox-developer-mode-setup) guide. We recommend using an external SSD for smoother performance when using HD textures or large games.
 
 ### Developer Mode on Xbox
 To run homebrew applications such as XBSX2, you need to enable Developer Mode. This allows you to install applications that aren't available from the Microsoft Store. If you haven't enabled Developer Mode yet, don't worry - we've got you covered here.
@@ -64,9 +64,14 @@ To run homebrew applications such as XBSX2, you need to enable Developer Mode. T
 
 ### Download the Necessary Files
 
-On your computer, go to [GitHub](https://github.com/XboxEmulationHub/XBSX2/releases/latest) or [the Dev Store](https://xbdev.store/).
-Download the latest version of XBSX2.
-You'll get one file: the `.msix` or `.msixbundle` file (XBSX2 itself)
+On your computer, use one of the following sources:
+
+1. **Emulation Revival Store (recommended):** Go to [XBSX2 on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html#xbsx2), pick the correct build for your console (Series vs One), and click **Download**.
+2. **GitHub (alternative):** Use the [latest XBSX2 release](https://github.com/XboxEmulationHub/XBSX2/releases/latest).
+
+Pick the **`msixbundle`** that matches your console. Releases ship two builds (**AVX2 for Xbox Series** and **SSE4 for Xbox One**). Using the wrong one can crash or perform poorly.
+
+Download only that **`msixbundle`**. Recent Xbox Emulation Hub releases do **not** ship separate dependency `.appx` files - the bundle you select is sufficient for Device Portal sideload.
 
 ### Transfer the Files to Xbox
 
@@ -78,12 +83,9 @@ In order to install XBSX2 on your Xbox, you'll need to use the Xbox Device Porta
 
 ### Upload XBSX2
 
-In the Device Portal, go to My Games & Apps.
-Click Add, then select Choose File.
-Upload the XBSX2 `.msix` or `.msixbundle` file.
-Click Next and follow the prompts to install.
+In the Device Portal, go to **My Games & Apps** - **Add** - **Choose File**, select your **`*.msixbundle`**, click **Next**, then **Start**. If GitHub/release notes describe extra packages, add them too. Typical XEH builds are bundle-only.
 
-**Troubleshooting:** If the app doesn't install correctly or gets stuck, refresh the page and retry.
+**Troubleshooting:** If installation stalls, refresh Device Portal and try again.
 
 ## Setting Up BIOS Files
 

@@ -20,15 +20,15 @@ If you have not prepared your USB for emulators yet (NTFS format and correct per
 
 <AtAGlance
   title="PPSSPP (PSP)"
-  summary="USB-first setup; internal storage works if needed."
+  summary="USB-first setup, internal storage works if needed."
   testedOn="09/27/2024"
   rows={[
     { label: 'Dev Mode', value: 'Required (Retail not supported)' },
-    { label: 'Storage', value: 'USB NTFS recommended; internal LocalState works but slower' },
+    { label: 'Storage', value: 'USB NTFS recommended, internal LocalState works but slower' },
     { label: 'User folder', value: 'USB:\\PSP (Create or Choose a PSP folder) or LocalAppData\\PPSSPP\\LocalState\\PSP' },
-    { label: 'Difficulty', value: 'Easy — about 10–15 minutes' },
-    { label: 'BIOS/keys', value: 'None needed; use PSP ISOs/CSOs/CHDs' },
-    { label: 'Controllers', value: 'Xbox gamepad; remap in-app' },
+    { label: 'Difficulty', value: 'Easy - about 10–15 minutes' },
+    { label: 'BIOS/keys', value: 'None needed, use PSP ISOs/CSOs/CHDs' },
+    { label: 'Controllers', value: 'Xbox gamepad, remap in-app' },
   ]}
   works={[
     'External USB auto-pathing when permissions are correct',
@@ -46,8 +46,12 @@ If you have not prepared your USB for emulators yet (NTFS format and correct per
 ## PPSSPP External USB Users
 
 :::caution
-Make sure your USB is NTFS and has ALL APP PACKAGES Permission otherwise Games won't load. If you want tutorial on setting USB Permission up with An App or Manual, see Dev Mode Setup Guide.
+Make sure your USB is NTFS and has **ALL APPLICATION PACKAGES -> Full Control**, otherwise games will not load. Use the USB section in the [Xbox Developer Mode Setup](/docs/xbox-setup/xbox-developer-mode-setup) guide.
 :::
+
+## Download PPSSPP
+
+Get PPSSPP from [Emulators on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html#ppsspp) (or the [PPSSPP UWP release](https://www.ppsspp.org/download/) the store mirrors). The download is a **`ppsspp_uwp.zip`**: extract it on your PC, then use Device Portal **My games & apps - Add** to sideload the **`PPSSPP*.appx`** inside (add any dependency packages the zip includes if Device Portal asks).
 
 Once your USB has been prepared using the Dev Mode USB steps (formatted to NTFS and with the correct permissions), plug it into your Xbox, open PPSSPP, and it will ask whether to set the PSP folder on **External (USB)** or **Internal (app storage)**.
 

@@ -18,13 +18,13 @@ This guide explains how to set up GZDoom, a source port of the Doom engine, on a
 
 <AtAGlance
   title="GZDoom (Doom engine)"
-  summary="USB or internal; keep WADs flat and set app type to Game."
+  summary="USB or internal, keep WADs flat and set app type to Game."
   testedOn="03/09/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required' },
-    { label: 'Storage', value: 'USB NTFS recommended; LocalState works for internal' },
+    { label: 'Storage', value: 'USB NTFS recommended, LocalState works for internal' },
     { label: 'User folder', value: 'USB:\\GZDoom\\Games/Mods or LocalState with Mods folder' },
-    { label: 'Difficulty', value: 'Easy — about 10–15 minutes' },
+    { label: 'Difficulty', value: 'Easy - about 10–15 minutes' },
     { label: 'BIOS/keys', value: 'None' },
     { label: 'Controllers', value: 'Xbox gamepad' },
   ]}
@@ -38,7 +38,7 @@ This guide explains how to set up GZDoom, a source port of the Doom engine, on a
     'Missing NTFS permissions on USB prevent access',
     'Forgetting to set app type to Game can hurt performance',
   ]}
-  notes="Place WADs/mods flat (no deep nesting); set app type to Game after install."
+  notes="Place WADs/mods flat (no deep nesting), set app type to Game after install."
 />
 
 ## External Drive Setup
@@ -57,7 +57,7 @@ This method uses a USB drive for storing game files and mods.
 
 ### 2. Initial GZDoom Launch and Game Selection
 
-1.  **Install GZDoom:** Install the GZDoom application through the Xbox Dev Portal (instructions for accessing the Dev Portal are assumed to be known).
+1.  **Install GZDoom:** Download **`zdoom_*_x64.msixbundle`** from [Emulators - GZDoom on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html#gzdoom) (or the [GZDoom UWP releases](https://github.com/aerisarn/gzdoom-uwp/releases) the store mirrors). Sideload the **`.msixbundle`** through Device Portal, add dependency packages only if that specific release includes a `Dependencies` folder or separate `.appx` files.
 2.  **Launch GZDoom:** Launch GZDoom on your Xbox.
 3. **Navigate and select your Games folder:**  You'll be prompted to select a folder.  Navigate to your external drive and select the *Games* folder you created (e.g., `E:\GZDoom\Games`).
 
@@ -149,7 +149,7 @@ This method uses the Xbox's internal storage.
 
 5. **Save and Reupload:** Save your modified `gzdoom_portable.ini` to your PC, then using the **Dev Portal**, upload and replace the `gzdoom_portable.ini` back into the `LocalState` folder on your Xbox.
 
-6.  **Launch and Play:** Launch GZDoom; your mods should be loaded.
+6.  **Launch and Play:** Launch GZDoom, your mods should be loaded.
 
 ## Notes and Tips
 

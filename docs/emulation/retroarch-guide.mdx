@@ -17,18 +17,18 @@ This guide provides instructions for installing and setting up RetroArch (Mesa f
 
 <AtAGlance
   title="RetroArch (Mesa/Angle)"
-  summary="Multi-core frontend; USB-first for BIOS, saves, and ROM paths."
+  summary="Multi-core frontend, USB-first for BIOS, saves, and ROM paths."
   testedOn="03/25/2025"
   rows={[
     { label: 'Dev Mode', value: 'Required (Retail not supported)' },
-    { label: 'Storage', value: 'USB NTFS recommended; internal LocalState/D: works for all-local setups' },
-    { label: 'User folders', value: 'Set via Settings > Directory; BIOS in LocalState\\system' },
-    { label: 'Difficulty', value: 'Intermediate — 20–30 minutes initial setup' },
+    { label: 'Storage', value: 'USB NTFS recommended, internal LocalState/D: works for all-local setups' },
+    { label: 'User folders', value: 'Set via Settings > Directory, BIOS in LocalState\\system' },
+    { label: 'Difficulty', value: 'Intermediate - 20–30 minutes initial setup' },
     { label: 'BIOS/keys', value: 'Per-core BIOS in system directory as needed' },
-    { label: 'Controllers', value: 'Xbox gamepad; set App type to Game for best performance' },
+    { label: 'Controllers', value: 'Xbox gamepad, set App type to Game for best performance' },
   ]}
   works={[
-    'Dev Store builds (Mesa/Angle) install via Device Portal',
+    'Emulation Revival Store builds (Mesa/Angle) install via Device Portal',
     'Core downloader after running Online Updater',
     'USB directory mapping for ROMs/BIOS/saves',
   ]}
@@ -37,7 +37,7 @@ This guide provides instructions for installing and setting up RetroArch (Mesa f
     'Missing USB permissions causes path errors',
     'Forgetting to set App type to Game hurts performance',
   ]}
-  notes="Run Online Updater before downloading cores; leave Core directory untouched. Internal installs can live under LocalState (D: on-device) if you keep everything local."
+  notes="Run Online Updater before downloading cores, leave Core directory untouched. Internal installs can live under LocalState (D: on-device) if you keep everything local."
 />
 
 :::caution
@@ -58,10 +58,10 @@ Before you begin, ensure the following conditions are met:
 
 You have a couple of options for getting the RetroArch UWP application:
 
-*   **Xbox Dev Store (Recommended for most users):**
-    *   This is the easiest method. See the [Installing RetroArch on Xbox](#3-installing-retroarch-on-xbox) section below for download instructions.
+*   **Emulation Revival Store (Recommended for most users):**
+    *   This is the easiest method. Open [RetroArch on Emulation Revival Store](https://emulationrevival.github.io/xbox-dev-mode/emulators.html#retroarch). Choose the **RetroArch** build for your Xbox model (Series vs One, with or without bundled cores), then click **Download**.
     :::note
-    The versions on the Dev Store (excluding the Citra build) typically *do not* come with cores pre-installed. You will need to download them later using the Online Updater (covered in Step 5).
+    The versions on the Emulation Revival Store (excluding the Citra build) typically *do not* come with cores pre-installed. You will need to download them later using the Online Updater (covered in Step 5).
     :::
 
 *   **Compiling from Source (Advanced Users):**
@@ -71,7 +71,7 @@ You have a couple of options for getting the RetroArch UWP application:
 
 ## 3. Installing RetroArch on Xbox
 
-Use the Xbox Device Portal to install the RetroArch application package (`.appx` or `.msixbundle`).
+Use the Xbox Device Portal to install the RetroArch **`RetroArch*.appx`** build you downloaded (official Xbox Emulation Hub releases distribute a single package per SKU - Xbox One vs Series, optional “All Cores” - **without** separate dependency uploads).
 
 1.  **Access Dev Portal:** On your PC or Smartphone, open a web browser and navigate to the Remote Access URL displayed in Dev Home on your Xbox.
 
@@ -80,8 +80,8 @@ Use the Xbox Device Portal to install the RetroArch application package (`.appx`
     :::
 2.  **Bypass Security Warning:** If your browser shows a security warning ("Your connection is not private"), click "Advanced" and "Proceed" (or the equivalent option). Edge browser typically handles this well.
 3.  **Navigate to "Add":** Under the "My games & apps" section, click "Add".
-4.  **Extract Files:** If you downloaded a `.zip` file, extract its contents on your PC or phone. You should have at least one `.appx` or `.msixbundle` file and potentially a dependency file.
-5.  **Upload Appx/Msixbundle:** Click "Choose File" (or drag and drop on PC) and select the main RetroArch application file (e.g., `RetroArch.appx`).
+4.  **Extract Files:** If you downloaded a `.zip`, extract it until you see the **`RetroArch-*.appx`** you intend to install.
+5.  **Upload package:** Choose that **`RetroArch-*.appx`** as the primary package when Device Portal prompts for the installer.
 6.  **Start Installation:** Click "Start" and wait for the installation to complete ("Package successfully registered").
 
 ## 4. Initial Launch Configuration
@@ -116,7 +116,7 @@ Once RetroArch is launched, perform these initial setup steps.
     *   `Update Cheats`
     *   `Update Databases`
     *   `Update Overlays`
-    *   `Update Slang Shaders` (Note: Slang shaders might be broken in some UWP builds; don't worry if this fails).
+    *   `Update Slang Shaders` (Note: Slang shaders might be broken in some UWP builds, don't worry if this fails).
 
 ### 5.2. Downloading Cores
 
