@@ -10,6 +10,48 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+function SvgMonitor() {
+  return (
+    <svg
+      className={styles.featureGlyphSvg}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <rect x="2" y="4" width="20" height="13" rx="2" ry="2" />
+      <path d="M8 21h8M12 17v4" />
+    </svg>
+  );
+}
+
+function SvgPlay() {
+  return (
+    <svg
+      className={styles.featureGlyphSvg}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="m10 8 6 4-6 4V8z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function SvgTerminal() {
+  return (
+    <svg
+      className={styles.featureGlyphSvg}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
+      <path d="M8 15l4-5-4-5M13 14h6" />
+    </svg>
+  );
+}
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -62,21 +104,27 @@ function HomepageContent() {
                 <div className="row">
                   <div className="col col--4">
                     <div className="text--center">
-                      <div className="feature-icon">🎮</div>
+                      <div className={styles.featureGlyph}>
+                        <SvgMonitor />
+                      </div>
                       <Heading as="h4">Xbox Development</Heading>
                       <p>Complete guides for setting up Xbox Developer Mode and creating UWP applications for Xbox Series S/X and Xbox One consoles.</p>
                     </div>
                   </div>
                   <div className="col col--4">
                     <div className="text--center">
-                      <div className="feature-icon">🕹️</div>
+                      <div className={styles.featureGlyph}>
+                        <SvgPlay />
+                      </div>
                       <Heading as="h4">Emulation Guides</Heading>
                       <p>Step-by-step tutorials for XBSX2, Dolphin, Xenia, and other emulators optimized for Xbox.</p>
                     </div>
                   </div>
                   <div className="col col--4">
                     <div className="text--center">
-                      <div className="feature-icon">🔧</div>
+                      <div className={styles.featureGlyph}>
+                        <SvgTerminal />
+                      </div>
                       <Heading as="h4">Developer Tools</Heading>
                       <p>Visual Studio setup, compilation guides, and essential tools for Xbox development projects.</p>
                     </div>

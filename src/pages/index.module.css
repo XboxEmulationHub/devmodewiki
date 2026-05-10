@@ -86,9 +86,24 @@
   background: var(--ifm-color-secondary-darkest);
 }
 
-.feature-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.featureGlyph {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.featureGlyph svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.featureGlyphSvg {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .cta {
