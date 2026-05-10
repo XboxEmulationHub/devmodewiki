@@ -1,0 +1,56 @@
+---
+title: "SuperTuxKart Guide"
+sidebar_position: 46
+description: "A guide for setting up SuperTuxKart on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: supertuxkart-guide
+---
+
+
+# SuperTuxKart UWP
+
+This build is intended for Xbox Series consoles through Xbox Dev Mode.
+
+### Install the SuperTuxKart UWP App
+- Install the `SuperTuxKart` MSIX package through the Xbox Dev Portal.
+- Install all included dependencies when prompted.
+- The package is around 750 MB, so installation may take a minute or two depending on your network speed.
+
+### Launch SuperTuxKart UWP
+1. Start the app from your Xbox Dev Mode installed apps list.
+2. Wait for the game to finish loading.
+3. Configure your controller bindings if needed.
+4. For best results, check the graphics settings before playing addon tracks.
+
+### Features
+- UWP port working on Xbox Series consoles.
+- Controller support and button rebinding are working.
+- Split screen multiplayer is supported.
+- Xbox users can join public online servers.
+- Keyboard input is supported where available.
+- Config files, downloaded addons, generated files and caches are stored in the app's `LocalState` folder.
+
+### Performance Notes
+- The build has been tested at 1440p and can maintain a fairly consistent 60 FPS.
+- Some addon tracks use heavier detail and may reduce performance.
+- If performance drops, reduce the render resolution in the graphics options.
+- If weather effects cause drops, set particle effects to **Important Only** in the custom graphics settings.
+- Do not enable texture compression in the custom graphics settings, as it currently causes visible banding in some skyboxes.
+
+### Networking
+- Xbox users can join existing public servers.
+- Xbox users cannot reliably host public or private servers because of console, router and NAT limitations.
+- For the best public online setup, run a normal 24/7 SuperTuxKart server on a PC with the correct ports forwarded. Xbox players can then join that server whenever they like.
+
+### Storage
+- Packaged game data is read from the installed app package.
+- Writable data is stored in UWP `LocalState`.
+- `LocalState` is used for config files, downloaded addons, generated files and caches.
+
+---
+
+*Contributor: MewLew*
+

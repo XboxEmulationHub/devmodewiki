@@ -1,0 +1,65 @@
+---
+title: "Starfox 64: Recompiled Guide"
+sidebar_position: 45
+description: "A guide for setting up Starfox 64: Recompiled on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: starfox64-guide
+---
+
+
+### Install the Starfox 64: Recompiled App
+- Install the `StarFox64Recompiled` MSIX package via the dev portal.
+- Install any included dependencies if the package provides them.
+- This build requires a **US v1.1 Star Fox 64 N64 ROM**.
+- Rename the ROM to:
+
+  `sf64.n64.us.1.1`
+
+### Internal Storage Setup
+1. Install and launch the game once.
+2. Close the app after the first launch.
+3. Open the Xbox Dev Portal.
+4. Go to:
+
+   `User Folders \ LocalAppData \ sf64_1.0.3.0_x64__52ywkb2d5ycg6 \ AC \ StarFox64Recompiled \`
+
+5. Upload the renamed ROM into the `StarFox64Recompiled` folder:
+
+   `sf64.n64.us.1.1`
+
+6. Launch the game again.
+
+### External Drive Setup
+1. Place your **US v1.1 Star Fox 64 N64 ROM** on an external drive.
+2. Launch the app.
+3. Choose **Select ROM** when prompted.
+4. Select the ROM from your external drive.
+5. The app will automatically copy the ROM to internal storage.
+
+### Saves and Mods
+- Saves are stored internally in:
+
+  `LocalState\AC\StarFox64Recompiled`
+
+- Mods are also stored internally in:
+
+  `LocalState\AC\StarFox64Recompiled`
+
+- Mods must use the `.nrm` format.
+
+### Additional Notes
+- The ROM must be the **US v1.1** version of Star Fox 64.
+- External ROM loading is only used to import the ROM.
+- After import, the ROM is copied to internal storage.
+- Saves and mods always remain in internal LocalState storage.
+- If the game does not detect the ROM, confirm the filename is exactly:
+
+  `sf64.n64.us.1.1`
+
+---
+
+*Contributor: MewLew*
+

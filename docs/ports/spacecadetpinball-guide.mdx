@@ -1,0 +1,76 @@
+---
+title: "SpaceCadetPinball Guide"
+sidebar_position: 42
+description: "A guide for setting up SpaceCadetPinball on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: spacecadetpinball-guide
+---
+
+
+### 1. Install the Space Cadet Pinball UWP App
+
+Install the `.msixbundle` and the included dependency file using the Xbox Device Portal.
+
+### 2. Add the Game Data
+
+This release does **not** include the original Space Cadet Pinball data files.
+
+You will need to provide your own:
+
+- `*.DAT`
+- `*.WAV`
+- `*.MID`
+
+Place the game data in **one** of the following locations:
+
+- The app’s **LocalState** folder using the Xbox Device Portal file explorer.
+- An external drive using this exact path:
+
+`E:\Pinball3D\`
+
+### 3. Set Up LocalState
+
+If you want to use internal storage, you may need to launch the game once first. This allows the app to create its **LocalState** folder.
+
+After launching it once, close the app. Then use the Xbox Device Portal file explorer to copy the game data into:
+
+`LocalState\SpaceCadetPinball\`
+
+### 4. Launch Space Cadet Pinball
+
+1. Launch the app from Xbox Dev Mode.
+2. The game will check for the required data files.
+3. If the files are found, the game will start normally.
+4. If the files are missing, the app will show a startup error explaining where the files need to be placed.
+
+### Controls
+
+- **Left Trigger**: Left flipper
+- **Right Trigger**: Right flipper
+- **A**: Plunger / launch ball
+- **Y**: New game
+- **Start**: Pause
+- **View / Back**: Toggle top menu
+
+### Saving
+
+Settings, control remaps, and highscores are saved automatically.
+
+Save data is stored in the app’s LocalState folder as:
+
+`imgui_pb.ini`
+
+This file stores:
+
+- graphics and UI settings
+- audio settings
+- control remaps
+- highscores
+
+---
+
+*Contributor: MewLew*
+

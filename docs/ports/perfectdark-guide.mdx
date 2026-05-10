@@ -1,0 +1,38 @@
+---
+title: "Perfect Dark Guide"
+sidebar_position: 23
+description: "A guide for setting up Perfect Dark on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: perfectdark-guide
+---
+
+
+### Prerequisites
+* **Perfect Dark ROM:** You must provide your own NTSC Final (US V1.1/Rev 1) ROM.
+    * **MD5 Checksum:** `e03b088b6ac9e0080440efed07c1e40f`
+* **Rename File:** Rename your ROM file to `pd.ntsc-final.z64` before starting.
+
+### Install the Perfect Dark App
+1.  Open the **Xbox Device Portal**.
+2.  Upload and install the `Perfect Dark .msix` package.
+3.  **Launch the app once** on your Xbox. This initial run is required to generate the necessary folder structure within `LocalState`.
+4.  Close the app once it has reached the main menu or initialization screen.
+
+### Upload Game Data
+1.  In the **Xbox Device Portal**, navigate to the following directory:
+    * `File Explorer` > `LocalAppData` > `Perfect Dark` > `LocalState` > `Perfect Dark`
+2.  Upload your renamed ROM (`pd.ntsc-final.z64`) into this folder.
+3.  Launch the app again to play.
+
+### Known Issues & Notes
+* **Compatibility:** The game is mostly functional, supporting both single-player and split-screen multiplayer.
+* **Bugs:** Users may experience minor graphical glitches, gameplay issues, or occasional crashes.
+* **Storage:** This setup currently only supports **internal** installations.
+
+---
+
+*Contributor: MewLew*
+

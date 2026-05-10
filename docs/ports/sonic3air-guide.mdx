@@ -1,0 +1,42 @@
+---
+title: "Sonic 3 A.I.R. Guide"
+sidebar_position: 34
+description: "A guide for setting up Sonic 3 A.I.R on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: sonic3air-guide
+---
+
+
+### 1. Obtain the Game ROM
+- Refer to the following documentation for instructions on how to obtain your ROM if you do not have the delisted *Sonic 3 & Knuckles* on Steam:
+  [Sonic 3 & Knuckles ROM Guide](https://docs.google.com/document/d/1oSud8dJHvdfrYbkGCfllAOp3JuTks7z4K5SwtVkXkx0/edit?usp=sharing)
+
+### 2. Install the Sonic 3 A.I.R. App
+- Install the app package via the Xbox Dev Portal.
+- Install the included dependency file.
+
+### 3. Add the ROM to Xbox
+- Once you have obtained your ROM (named `Sonic_Knuckles_wSonic3.bin`), place it in **one** of these locations:
+  - The app's **LocalState** folder using the Xbox Dev Portal file explorer.
+  - An external drive at the specific path: `E:\Sonic3AIR`.
+
+### 4. Launch and Initial Setup
+1. Launch the app on your Xbox Series console.
+2. On first launch, the game will automatically generate the following folders:
+   - `data`
+   - `storage`
+   - `mods`
+3. **Storage Behavior:** - If the ROM is found on your external drive (`E:\Sonic3AIR`), that location becomes the active root for saves, mods, and config files.
+   - If no ROM is found there, the game defaults to **LocalState**.
+
+### Additional Notes
+- **Remastered Audio:** The audio download is functional and will save to whichever storage root is active.
+- **Controller Support:** Full support and rebinding are available in-game.
+
+---
+
+*Contributor: MewLew*
+

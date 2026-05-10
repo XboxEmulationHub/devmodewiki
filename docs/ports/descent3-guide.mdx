@@ -1,0 +1,43 @@
+---
+title: "Descent 3 Guide"
+sidebar_position: 7
+description: "A guide for setting up Descent 3 on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: descent3-guide
+---
+
+
+## Important Notes
+
+* **This open source distribution of Descent 3 DOES NOT CONTAIN GAME ASSETS.** Assets must be acquired separately from an official copy of the game, and copied as described in the next section.
+* Functional but slightly chunky virtual mouse.
+* Virtual keyboard only shows once per prompt; if you accidentally leave, you might get stuck.
+* View Demo will crash the game.
+* Multiplayer is hit or miss; if joining remotely to Xbox, you may need to specify IP (discovery seems broken).
+* Analog trigger button binds.
+
+---
+
+## Setup
+
+1. Make sure that you have a copy of Descent 3. You can purchase a copy of Descent 3 from [GOG](https://www.gog.com/game/descent_3_expansion) or [Steam](https://store.steampowered.com/app/273590/Descent_3/).
+2. Install Descent 3.
+    > **Note for Steam users:** If you own Descent 3 on Steam, then it’s recommended that you install the Windows version of the game even if you’re running macOS or Linux, otherwise movies will not work due to [current lack of Ogv support](https://github.com/DescentDevelopers/Descent3/issues/240). You can use either [Steam Play](https://help.steampowered.com/en/faqs/view/08F7-5D56-9654-39AF) or [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Cross-Platform_Installation) to install the Windows version of the game on macOS or Linux.
+3. If your version of Descent 3 is older than v1.4, then [update it to v1.4](http://descent3.com/downloads.php).
+4. Find the installation location of Descent 3. Using the Steam client, you can find it from the library page using the `Manage > Browse local files` context menu.
+5. Create a new folder named `descent3` on your `E` drive.
+6. Copy the following files from your installation of Descent 3 to `E:\descent3`:
+    * All `.hog` files
+    * The `missions` folder
+    * *(Optional)* All `.pld` files
+    * *(Optional)* The `movies` folder
+7. Create the `custom/` folder in `E:\descent3`.
+8. Setup your binds in the Joystick/Mouse tab of the controls menu.
+
+---
+
+*Contributor: MewLew*
+

@@ -1,0 +1,103 @@
+---
+title: "sm64coopdx Guide"
+sidebar_position: 27
+description: "A guide for setting up sm64coopdx on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: sm64coopdx-guide
+---
+
+
+This build is for Xbox Series consoles in Dev Mode.
+
+### 1. Get the right ROM
+
+You need a **vanilla US Super Mario 64 ROM** named:
+
+`baserom.us.z64`
+
+Expected MD5:
+
+`20b854b239203baf6c961b850a4a51a2`
+
+If the ROM name or hash does not match, the game will not load properly.
+
+### 2. Choose where to put the ROM
+
+You have two supported options:
+
+- `LocalState`
+- `E:\sm64coopdx`
+
+#### Option A: LocalState
+Use the Xbox Dev Portal file explorer and upload:
+
+`baserom.us.z64`
+
+into the app's `LocalState` folder.
+
+#### Option B: E drive
+Create this folder on the Xbox drive:
+
+`E:\sm64coopdx`
+
+and place the ROM here:
+
+`E:\sm64coopdx\baserom.us.z64`
+
+### 3. First launch
+
+On first boot, the game will set up its working folders automatically.
+
+That includes folders like:
+
+- `mods`
+- `dynos`
+- `sav`
+- `palettes`
+- `lang`
+
+Please **do not manually add extra files before the first launch** apart from the ROM itself.
+
+The game needs that first boot to finish its own setup cleanly.
+
+### 4. Active storage path
+
+Wherever the ROM is found becomes the active root path for the game.
+
+So if the ROM is in:
+
+- `LocalState`  
+  then saves, config, mods, DynOS content, and user files will live in `LocalState`
+
+- `E:\sm64coopdx`  
+  then saves, config, mods, DynOS content, and user files will live in `E:\sm64coopdx`
+
+### 5. After first launch
+
+Once the game has booted successfully once, you can then add extra content such as:
+
+- mods
+- DynOS packs
+- palettes
+- language files
+
+Add them to the same active root path the game is using.
+
+### 6. Current status
+
+- CoopNet works
+- Public lobbies work
+- Mods work
+
+If the game does not detect the ROM, the first thing to check is:
+
+- filename is exactly `baserom.us.z64`
+- ROM hash is exactly `20b854b239203baf6c961b850a4a51a2`
+
+---
+
+*Contributor: MewLew*
+

@@ -1,0 +1,63 @@
+---
+title: " Nazi Zombies: Portable Guide"
+sidebar_position: 19
+description: "A guide for setting up Nazi Zombies: Portable on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: nzp-guide
+---
+
+
+# Nazi Zombies: Portable UWP
+
+Xbox Dev Mode build of Nazi Zombies: Portable.
+
+## Install
+
+1. Open Xbox Device Portal.
+2. Go to the app install page.
+3. Upload the x64 `.msix` package.
+4. Install any x64 dependency package shown with the build, if Device Portal asks for it.
+5. Launch NZ:P from Dev Mode.
+
+First launch can take a little longer while config and cache files are created.
+
+## Controls
+
+```text
+Start + View/Back  Open console
+View/Back          Close console
+A                  Open the keyboard on text fields
+D-pad              Navigate menus and server browser
+```
+
+## Brightness
+
+Some maps can look darker on Xbox than on PC.
+
+If a level feels too dark, raise Gamma in Video Settings a bit.
+
+## Online Play
+
+Public servers should appear in the server browser.
+
+To host from Xbox, your router may need this port forwarded to the Xbox:
+
+```text
+UDP 27500
+```
+
+If a server kicks you for a map or asset mismatch, try another server. Some public servers are running different files, and desktop NZ:P can hit the same problem.
+
+## Notes
+
+Downloaded server files are saved by the game automatically.
+
+Direct UDP servers are the best choice right now. P2P or relay-style servers may be less reliable.
+
+---
+
+*Contributor: MewLew*
+
