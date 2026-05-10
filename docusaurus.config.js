@@ -9,6 +9,19 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
+function suppressVscodeLanguageserverWebpackWarnings() {
+  return {
+    name: 'suppress-vscode-languageserver-webpack-warnings',
+    configureWebpack() {
+      return {
+        ignoreWarnings: [
+          { module: /vscode-languageserver-types[\\/]lib[\\/]umd[\\/]main\.js$/ },
+        ],
+      };
+    },
+  };
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Dev Mode Wiki',
@@ -187,6 +200,7 @@ const config = {
       },
     ],
     'docusaurus-plugin-image-zoom',
+    suppressVscodeLanguageserverWebpackWarnings,
   ],
 
   themeConfig:
