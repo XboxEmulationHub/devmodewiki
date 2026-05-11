@@ -1,0 +1,105 @@
+---
+sidebar_position: 6
+title: How to Compile SDL3 for UWP
+description: Build SDL3 from the SDL3-uwp fork for Universal Windows Platform and Xbox Developer Mode development
+slug: compiling-sdl3-guide
+---
+
+# How to Compile SDL3 for UWP
+
+Sources: [SternXD/SDL3-uwp](https://github.com/SternXD/SDL3-uwp), branch **`uwp-3.4.8`** (SDL 3.4.8). You can build the WinRT/UWP DLL either from **`VisualC-WinRT/SDL-UWP.sln`** or with **CMake + Ninja** using the same flags as the SDL-UWP 3.4.8 release notes.
+
+:::note
+Grab a prebuilt release from my fork's [Releases](https://github.com/SternXD/SDL3-uwp/releases) if you don't need a local build.
+:::
+
+---
+
+## Prerequisites
+
+- Windows machine with room for a full C++ tree and object files.
+- **Visual Studio 2026** with UWP bits installed see [Visual Studio 2026 setup](/docs/helpful-links/visual-studio-2026-setup) (**WinUI application development**, **Desktop development with C++** is a good idea, **C++ Universal Windows Platform tools**). The `.sln` may still want **C++ (v143) UWP tools** add those if VS asks to retarget or complains about the toolset.
+- **Git**: [git-scm.com/downloads](https://git-scm.com/downloads)
+- **CMake + Ninja** (command-line build only): [CMake](https://cmake.org/download/), [Ninja](https://github.com/ninja-build/ninja/releases), or e.g. `winget install Kitware.CMake` and `winget install Ninja-build.Ninja`. Both need to be on `PATH`.
+
+---
+
+## Clone
+
+```powershell
+git clone -b uwp-3.4.8 https://github.com/SternXD/SDL3-uwp.git
+cd SDL3-uwp
+```
+
+---
+
+## Visual Studio
+
+1. Open **`VisualC-WinRT/SDL-UWP.sln`** in VS 2026.
+2. Configuration **Release** (use **Debug** only if you need symbols).
+3. Platform **x64**. Other UWP targets in the solution may be incomplete stick to x64 unless you know you need something else.
+4. Build the SDL UWP project from Solution Explorer.
+
+Outputs go under **`VisualC-WinRT`** in the usual `x64\Release`-style folders (exact path depends on how the project is retargeted). Point your app at this repo's **`include`** (and **`include/build_config`** where needed), link the produced **`.lib`**, and ship the **`.dll`** inside your app package like any other UWP dependency. To put outputs somewhere else, change **Output Directory** on the SDL project's **General** properties.
+
+There's a **`VisualC-WinRT/testdraw`** sample if you want a quick sanity check after linking.
+
+---
+
+## CMake + Ninja
+
+Same thing as the [SDL-UWP 3.4.8](https://github.com/SternXD/SDL3-uwp/releases) release text.
+
+1. Start from a **Developer Command Prompt for VS 2026** or **x64 Native Tools** prompt so `cl` and the SDK are set up, then `cd` into the clone.
+
+2. Set where you want the install to go. **cmd:**
+
+   ```cmd
+   set INSTALLDIR=C:\sdl3-uwp-install
+   ```
+
+   **PowerShell:** put the path straight into CMake, e.g. `-DCMAKE_INSTALL_PREFIX="C:\sdl3-uwp-install"`, or set `$env:INSTALLDIR` and use `-DCMAKE_INSTALL_PREFIX="$env:INSTALLDIR"` in the configure command (don't rely on `%INSTALLDIR%` that's cmd).
+
+3. Configure ( **`^`** is cmd line continuation):
+
+   ```cmd
+   cmake -B build-uwp ^
+     -DCMAKE_SYSTEM_NAME=WindowsStore ^
+     -DCMAKE_SYSTEM_VERSION=10.0 ^
+     -DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY ^
+     -DCMAKE_BUILD_TYPE=Release ^
+     -DCMAKE_INSTALL_PREFIX="%INSTALLDIR%" ^
+     -DBUILD_SHARED_LIBS=ON ^
+     -DSDL_SHARED=ON ^
+     -DSDL_STATIC=OFF ^
+     -DSDL_TESTS=OFF ^
+     -DSDL_EXAMPLES=OFF ^
+     -G Ninja
+   ```
+
+4. Build:
+
+   ```cmd
+   cmake --build build-uwp --config Release --parallel
+   ```
+
+5. Install:
+
+   ```cmd
+   cmake --install build-uwp --config Release
+   ```
+
+You'll get a normal prefix layout under **`INSTALLDIR`**: `include`, `lib`, `bin`, etc.
+
+---
+
+## Adding it to your app
+
+**VS build:** includes from this repo, libs/DLL from the `VisualC-WinRT` output folder you built.
+
+**CMake install:** includes and libs from **`CMAKE_INSTALL_PREFIX`** after step 5.
+
+---
+
+
+API docs: [wiki.libsdl.org/SDL3](https://wiki.libsdl.org/SDL3).
