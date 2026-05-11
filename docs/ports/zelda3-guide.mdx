@@ -9,28 +9,396 @@ tags:
 slug: zelda3-guide
 ---
 
+## Requirements
 
-### Requirements
-- a `zelda3.sfc` USA ROM file (for asset extraction step only) with SHA256 hash `66871d66be19ad2c34c927d6b14cd8eb6fc3181965b6e517cb361f7316009cfb`
-- `Microsoft.VCLibs.x64.14.00.appx` dependency file
+You need:
 
-### Extract Assets
-- Download the zelda3 project by clicking "Code > Download ZIP" on the **[Github](<https://github.com/snesrev/zelda3>)** page
-- Extract the ZIP to your hard drive
-- Place the USA rom named zelda3.sfc in the root directory
-- Double-click `extract_assets.bat` in the main directory to create zelda3_assets.dat in that same directory
+- Zelda3 UWP `.msixbundle`
+- Xbox Developer Mode
+- Xbox Dev Portal access
+- Windows PC
+- Python 3.11 or newer
+- `pillow` and `pyyaml`
+- Legally dumped US Zelda 3 ROM
 
-### Internal Setup
-1. Launch **Zelda 3** to initialize the folders.
-    - The app will force close. 
-2. Upload the `zelda3_assets.dat` and the `config.ini` file:
-   - Open the Dev Portal.
-   - Go to **File Explorer** > **Local App Data** > **Zelda3**.
-   - Navigate to the **Local State** folder.
-      - Click **Choose File**, locate your `zelda3_assets.dat` file, and **Upload**.
-3. Launch **Zelda 3** and you're ready to play.
+The ROM must be named:
+
+```text
+zelda3.sfc
+```
+
+Required SHA256:
+
+```text
+66871d66be19ad2c34c927d6b14cd8eb6fc3181965b6e517cb361f7316009cfb
+```
+
+---
+
+# 1. Extract Zelda3 Assets
+
+The UWP port needs this file:
+
+```text
+zelda3_assets.dat
+```
+
+This is generated from your ROM. Once generated, the ROM is no longer needed by the app.
+
+## Install Python Requirements
+
+Install Python from:
+
+```text
+https://www.python.org/downloads/
+```
+
+During setup, enable:
+
+```text
+Add Python to PATH
+```
+
+Then open Command Prompt and run:
+
+```sh
+python -m pip install --upgrade pip pillow pyyaml
+```
+
+## Download Zelda3
+
+Download the source:
+
+```text
+https://github.com/snesrev/zelda3
+```
+
+Or clone it:
+
+```sh
+git clone https://github.com/snesrev/zelda3
+cd zelda3
+```
+
+## Generate the Asset File
+
+1. Place your US ROM in the Zelda3 source folder.
+2. Rename it to:
+
+```text
+zelda3.sfc
+```
+
+3. Run:
+
+```text
+extract_assets.bat
+```
+
+4. Confirm this file was created:
+
+```text
+zelda3_assets.dat
+```
+
+That is the file you need for Xbox.
+
+---
+
+# 2. Install Zelda3 UWP
+
+1. Open Xbox Dev Portal.
+2. Install the Zelda3 UWP `.msixbundle`.
+3. Launch the app once.
+4. Close the app.
+
+Launching once lets the app create its config and storage folders.
+
+---
+
+# 3. Choose Storage Method
+
+Zelda3 UWP supports:
+
+- External storage: `E:/Zelda3/`
+- Internal storage: `LocalState/`
+
+External storage is preferred if present. If not found, the app falls back to `LocalState`.
+
+---
+
+## External Storage Setup
+
+Create this folder:
+
+```text
+E:/Zelda3/
+```
+
+Place your asset file here:
+
+```text
+E:/Zelda3/zelda3_assets.dat
+```
+
+Recommended layout:
+
+```text
+E:/Zelda3/
+├─ zelda3_assets.dat
+├─ zelda3.ini
+├─ MSU/
+├─ sprites-gfx/
+└─ glsl-shaders/
+```
+
+---
+
+## Internal Storage Setup
+
+Use the app's Xbox Dev Mode `LocalState` folder.
+
+Place your asset file here:
+
+```text
+LocalState/zelda3_assets.dat
+```
+
+Recommended layout:
+
+```text
+LocalState/
+├─ zelda3_assets.dat
+├─ zelda3.ini
+├─ MSU/
+├─ sprites-gfx/
+└─ glsl-shaders/
+```
+
+Typical Xbox Dev Portal path:
+
+```text
+Q:/Users/UserMgr0/AppData/Local/Packages/Zelda3/LocalState/
+```
+
+---
+
+# 4. Configure Zelda3
+
+The app creates `zelda3.ini` automatically if it is missing.
+
+Edit the config in whichever storage location you are using:
+
+```text
+E:/Zelda3/zelda3.ini
+```
+
+or:
+
+```text
+LocalState/zelda3.ini
+```
+
+---
+
+## Aspect Ratio
+
+For original 4:3:
+
+```ini
+[General]
+ExtendedAspectRatio = 4:3
+
+[Graphics]
+IgnoreAspectRatio = 0
+```
+
+For 16:9 widescreen:
+
+```ini
+[General]
+ExtendedAspectRatio = 16:9
+
+[Graphics]
+IgnoreAspectRatio = 0
+```
+
+Keep `IgnoreAspectRatio = 0` for normal behavior.
+
+In widescreen mode, unrevealed side areas stay black until the camera exposes them. This matches the current PC build behavior.
+
+---
+
+# 5. MSU Audio
+
+Enable MSU audio in `zelda3.ini`:
+
+```ini
+[Sound]
+EnableMSU = true
+MSUPath = MSU/
+```
+
+Place MSU files in:
+
+```text
+E:/Zelda3/MSU/
+```
+
+or:
+
+```text
+LocalState/MSU/
+```
+
+Supported examples:
+
+```text
+alttp_msu-1.pcm
+alttp_msu-2.pcm
+alttp_msu-3.pcm
+```
+
+or:
+
+```text
+1.pcm
+2.pcm
+3.pcm
+```
+
+OPUZ files are also supported:
+
+```text
+alttp_msu-1.opuz
+1.opuz
+```
+
+For PCM packs:
+
+```ini
+AudioFreq = 44100
+```
+
+For OPUZ packs:
+
+```ini
+AudioFreq = 48000
+```
+
+---
+
+# 6. Custom Sprites
+
+Custom `.zspr` Link sprites are supported.
+
+Set this in `zelda3.ini`:
+
+```ini
+[Graphics]
+LinkGraphics = sprites-gfx/your_sprite.zspr
+```
+
+Place sprites in:
+
+```text
+E:/Zelda3/sprites-gfx/
+```
+
+or:
+
+```text
+LocalState/sprites-gfx/
+```
+
+Custom sprites can be found here:
+
+```text
+https://snesrev.github.io/sprites-gfx/snes/zelda3/link/
+```
+
+---
+
+# 7. Shader Folder
+
+The app may create:
+
+```text
+glsl-shaders
+```
+
+External path:
+
+```text
+E:/Zelda3/glsl-shaders/
+```
+
+Internal path:
+
+```text
+LocalState/glsl-shaders/
+```
+
+GLSL shaders do not currently work on the normal Xbox UWP build because they depend on OpenGL shader support.
+
+---
+
+# Troubleshooting
+
+## Game Does Not Start
+
+Check:
+
+- `zelda3_assets.dat` exists
+- The file is in `E:/Zelda3/` or `LocalState/`
+- The asset file was generated from the correct US ROM
+- The ROM hash matched before extraction
+- The app was launched once before copying files
+
+## Widescreen Not Working
+
+Use:
+
+```ini
+[General]
+ExtendedAspectRatio = 16:9
+
+[Graphics]
+IgnoreAspectRatio = 0
+```
+
+Also make sure you edited the active config:
+
+```text
+E:/Zelda3/zelda3.ini
+```
+
+or:
+
+```text
+LocalState/zelda3.ini
+```
+
+## MSU Audio Not Working
+
+Check:
+
+- `EnableMSU = true`
+- `MSUPath = MSU/`
+- Files are inside `E:/Zelda3/MSU/` or `LocalState/MSU/`
+- File names match a supported naming style
+- PCM uses `AudioFreq = 44100`
+- OPUZ uses `AudioFreq = 48000`
+
+## Custom Sprite Not Working
+
+Check:
+
+- The sprite is a valid `.zspr` file
+- The file is inside `sprites-gfx`
+- `LinkGraphics` points to the correct filename
+- You edited the active `zelda3.ini`
 
 ---
 
 *Contributor: MewLew*
-
