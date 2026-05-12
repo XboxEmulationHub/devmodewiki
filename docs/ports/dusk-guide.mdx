@@ -1,0 +1,208 @@
+---
+title: "Dusk (Twilight Princess) Guide"
+sidebar_position: 10
+description: "A guide for setting up Dusk (Twilight Princess) on dev mode"
+tags:
+  - guides
+  - ports
+  - xbox
+slug: dusk-uwp-guide
+---
+
+## Requirements
+
+You need:
+
+- The Dusk UWP `.zip` package
+- Xbox Developer Mode
+- Xbox Device Portal access
+- A USB external drive for your game dump
+- A clean, legally dumped **GameCube** disc image of Twilight Princess
+- Optional: a **DDS** texture pack
+
+---
+
+## Supported Game Dump Hashes
+
+Before setting up Dusk, make sure your dump is clean and supported.
+
+Check the **SHA-1** hash of your dump and compare it with the supported versions below.
+
+| Version | SHA-1 hash |
+| --- | --- |
+| GameCube USA | `75edd3ddff41f125d1b4ce1a40378f1b565519e7` |
+| GameCube EUR | `2601822a488eeb86fb89db16ca8f29c2c953e1ca` |
+
+Once you have verified your ROM, copy it to your external drive.
+
+If you have not already prepared your external drive for Dev Mode, follow this [USB setup guide](https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup#setting-up-usb-drive-for-emulation) first.
+
+---
+
+## Install Dusk UWP
+
+1. Extract the Dusk UWP release package:
+
+```text
+dusk_uwp.zip
+```
+
+2. Open the extracted folder.
+3. Find the Dusk `.msixbundle` file.
+4. Open the Xbox Device Portal in your browser.
+5. Go to the app installation page.
+6. Choose the Dusk `.msixbundle`.
+7. Add the required dependency file from the `x64` dependency folder.
+8. Install the package.
+
+---
+
+## First Boot Setup
+
+1. Connect your external drive to the Xbox.
+2. Launch Dusk.
+3. Choose **Select Disc Image**.
+4. The Xbox file picker will open.
+5. Select your supported Twilight Princess GameCube dump from the external drive.
+6. Follow the on screen prompt for opening the Dusk menu.
+7. Choose either the normal experience or the Dusk experience when prompted.
+
+---
+
+## Texture Pack Requirements
+
+Texture packs must be in **DDS** format.
+
+A correct texture pack should contain a folder named:
+
+```text
+GZ2
+```
+
+Inside `GZ2`, you should see folders such as:
+
+```text
+CREATURE
+ENVIRONMENT
+LINK
+NPC
+```
+
+The full `GZ2` folder must end up inside Dusk's texture replacement folder in Xbox internal app storage.
+
+---
+
+## Texture Pack Memory Warning
+
+Use a **1080p** texture pack for Xbox Dev Mode.
+
+Avoid **4K** texture packs. They are likely to exceed the Xbox Dev Mode **5020 MB** memory limit. If the texture pack is too large, Dusk may crash, fail to load textures or run out of memory.
+
+---
+
+## Texture Replacement Path
+
+Texture replacements go here inside the Dusk app's `LocalState` folder:
+
+```text
+LocalState\TwilitRealm\Dusk\texture_replacements
+```
+
+---
+
+## Upload Texture Packs Through Xbox Device Portal
+
+1. Open the Xbox Device Portal in your browser.
+2. Go to **File Explorer**.
+3. Open **LocalAppData**.
+4. Open the Dusk app folder.
+5. Open **LocalState**.
+6. Open this folder path:
+
+```text
+TwilitRealm\Dusk\texture_replacements
+```
+
+---
+
+## Recommended Upload Method
+
+Ensure the texture pack's `GZ2` folder is in `.zip` format and upload it to:
+
+```text
+LocalState\TwilitRealm\Dusk\texture_replacements
+```
+
+When prompted by Device Portal, choose to extract the zip automatically.
+
+After extraction, the folder should look like this:
+
+```text
+texture_replacements\GZ2\CREATURE
+texture_replacements\GZ2\ENVIRONMENT
+texture_replacements\GZ2\LINK
+texture_replacements\GZ2\NPC
+```
+
+If the upload hangs forever in Device Portal, use this method instead:
+
+1. On your PC, open the texture pack's `GZ2` folder.
+2. Zip each folder inside `GZ2` separately.
+
+For example:
+
+```text
+CREATURE.zip
+ENVIRONMENT.zip
+LINK.zip
+NPC.zip
+```
+
+3. In the Xbox Device Portal, open:
+
+```text
+LocalState\TwilitRealm\Dusk\texture_replacements\GZ2
+```
+
+You may need to create the `GZ2` folder if it does not already exist.
+
+4. Upload one zipped folder at a time.
+5. When prompted, choose to extract the contents of the zip into the current directory.
+6. Repeat until every folder from the texture pack's `GZ2` folder has been uploaded and extracted.
+
+After extraction, the folder should look like this:
+
+```text
+texture_replacements\GZ2\CREATURE
+texture_replacements\GZ2\ENVIRONMENT
+texture_replacements\GZ2\LINK
+texture_replacements\GZ2\NPC
+```
+
+If the folder layout is correct, Dusk should load the replacement textures automatically.
+
+---
+
+## Troubleshooting
+
+### The game does not detect my dump
+
+Recheck the SHA-1 hash. The dump must match one of the supported GameCube versions.
+
+### The game launches but textures do not load
+
+Check the folder layout.
+
+This is correct:
+
+```text
+LocalState\TwilitRealm\Dusk\texture_replacements\GZ2\LINK
+```
+
+This is wrong:
+
+```text
+LocalState\TwilitRealm\Dusk\texture_replacements\LINK
+```
+
+The `GZ2` folder must not be skipped.
