@@ -1,19 +1,19 @@
 ---
-title: "Dusk (Twilight Princess) Guide"
+title: "Dusklight (Twilight Princess) Guide"
 sidebar_position: 10
-description: "A guide for setting up Dusk (Twilight Princess) on dev mode"
+description: "A guide for setting up Dusklight (Twilight Princess) on dev mode"
 tags:
   - guides
   - ports
   - xbox
-slug: dusk-uwp-guide
+slug: dusklight-guide
 ---
 
 ## Requirements
 
 You need:
 
-- The Dusk UWP `.zip` package
+- The Dusklight UWP `.zip` package
 - Xbox Developer Mode
 - Xbox Device Portal access
 - A USB external drive for your game dump
@@ -24,7 +24,7 @@ You need:
 
 ## Supported Game Dump Hashes
 
-Before setting up Dusk, make sure your dump is clean and supported.
+Before setting up Dusklight, make sure your dump is clean and supported.
 
 Check the **SHA-1** hash of your dump and compare it with the supported versions below.
 
@@ -39,19 +39,19 @@ If you have not already prepared your external drive for Dev Mode, follow this [
 
 ---
 
-## Install Dusk UWP
+## Install Dusklight UWP
 
-1. Extract the Dusk UWP release package:
+1. Extract the Dusklight UWP release package:
 
 ```text
-dusk_uwp.zip
+dusklight_uwp.zip
 ```
 
 2. Open the extracted folder.
-3. Find the Dusk `.msixbundle` file.
+3. Find the Dusklight `.msixbundle` file.
 4. Open the Xbox Device Portal in your browser.
 5. Go to the app installation page.
-6. Choose the Dusk `.msixbundle`.
+6. Choose the Dusklight `.msixbundle`.
 7. Add the required dependency file from the `x64` dependency folder.
 8. Install the package.
 
@@ -60,12 +60,12 @@ dusk_uwp.zip
 ## First Boot Setup
 
 1. Connect your external drive to the Xbox.
-2. Launch Dusk.
+2. Launch Dusklight.
 3. Choose **Select Disc Image**.
 4. The Xbox file picker will open.
 5. Select your supported Twilight Princess GameCube dump from the external drive.
-6. Follow the on screen prompt for opening the Dusk menu.
-7. Choose either the normal experience or the Dusk experience when prompted.
+6. Follow the on screen prompt for opening the Dusklight menu.
+7. Choose either the normal experience or the Dusklight experience when prompted.
 
 ---
 
@@ -88,7 +88,7 @@ LINK
 NPC
 ```
 
-The full `GZ2` folder must end up inside Dusk's texture replacement folder in Xbox internal app storage.
+The full `GZ2` folder must end up inside Dusklight's texture replacement folder in Xbox internal app storage.
 
 ---
 
@@ -96,16 +96,16 @@ The full `GZ2` folder must end up inside Dusk's texture replacement folder in Xb
 
 Use a **1080p** texture pack for Xbox Dev Mode.
 
-Avoid **4K** texture packs. They are likely to exceed the Xbox Dev Mode **5120 MB** memory limit. If the texture pack is too large, Dusk may crash, fail to load textures or run out of memory.
+Avoid **4K** texture packs. They are likely to exceed the Xbox Dev Mode **5120 MB** memory limit. If the texture pack is too large, Dusklight may crash, fail to load textures or run out of memory.
 
 ---
 
 ## Texture Replacement Path
 
-Texture replacements go here inside the Dusk app's `LocalState` folder:
+Texture replacements go here inside the Dusklight app's `LocalState` folder:
 
 ```text
-LocalState\TwilitRealm\Dusk\texture_replacements
+LocalState\TwilitRealm\Dusklight\texture_replacements
 ```
 
 ---
@@ -115,12 +115,12 @@ LocalState\TwilitRealm\Dusk\texture_replacements
 1. Open the Xbox Device Portal in your browser.
 2. Go to **File Explorer**.
 3. Open **LocalAppData**.
-4. Open the Dusk app folder.
+4. Open the Dusklight app folder.
 5. Open **LocalState**.
 6. Open this folder path:
 
 ```text
-TwilitRealm\Dusk\texture_replacements
+TwilitRealm\Dusklight\texture_replacements
 ```
 
 ---
@@ -130,7 +130,7 @@ TwilitRealm\Dusk\texture_replacements
 Ensure the texture pack's `GZ2` folder is in `.zip` format and upload it to:
 
 ```text
-LocalState\TwilitRealm\Dusk\texture_replacements
+LocalState\TwilitRealm\Dusklight\texture_replacements
 ```
 
 When prompted by Device Portal, choose to extract the zip automatically.
@@ -161,7 +161,7 @@ NPC.zip
 3. In the Xbox Device Portal, open:
 
 ```text
-LocalState\TwilitRealm\Dusk\texture_replacements\GZ2
+LocalState\TwilitRealm\Dusklight\texture_replacements\GZ2
 ```
 
 You may need to create the `GZ2` folder if it does not already exist.
@@ -179,7 +179,7 @@ texture_replacements\GZ2\LINK
 texture_replacements\GZ2\NPC
 ```
 
-If the folder layout is correct, Dusk should load the replacement textures automatically.
+If the folder layout is correct, Dusklight should load the replacement textures automatically.
 
 ---
 
@@ -196,13 +196,13 @@ Check the folder layout.
 This is correct:
 
 ```text
-LocalState\TwilitRealm\Dusk\texture_replacements\GZ2\LINK
+LocalState\TwilitRealm\Dusklight\texture_replacements\GZ2\LINK
 ```
 
 This is wrong:
 
 ```text
-LocalState\TwilitRealm\Dusk\texture_replacements\LINK
+LocalState\TwilitRealm\Dusklight\texture_replacements\LINK
 ```
 
 The `GZ2` folder must not be skipped.
