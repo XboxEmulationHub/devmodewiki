@@ -1,0 +1,59 @@
+---
+title: "Super Mario World Remastered Plus Guide"
+sidebar_position: 48
+description: "A guide for setting up Super Mario World Remastered Plus on Xbox Dev Mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: super-mario-world-remastered-plus-guide
+---
+
+# Super Mario World Remastered Plus Guide
+
+Super Mario World Remastered Plus needs an original standalone **Super Mario World SNES ROM**.
+
+Do not use **Super Mario All-Stars + Super Mario World**, **Super Mario Advance 2** ROMs.
+
+## What You Need
+
+- Super Mario World Remastered Plus installed in Xbox Dev Mode
+- Your own legally dumped Super Mario World SNES ROM
+- Xbox Device Portal access
+
+## First Launch
+
+Launch the game once before uploading the ROM.
+
+The game will tell you that the ROM needs to be placed in the game’s LocalState folder and renamed to:
+
+```text
+baserom.sfc
+```
+
+Close the game after this message appears.
+
+## Uploading the ROM
+
+Rename your Super Mario World ROM to:
+
+```text
+baserom.sfc
+```
+
+Open Xbox Device Portal and go to:
+
+```text
+User Folders > LocalAppData > Super Mario World Remastered Plus > LocalState
+```
+
+Upload `baserom.sfc` directly into `LocalState`.
+
+The final layout should be:
+
+```text
+LocalState
+└── baserom.sfc
+```
+
+Do not put the ROM inside a folder.
