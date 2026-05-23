@@ -1,0 +1,104 @@
+---
+title: "RSDKv4 UWP Guide"
+sidebar_position: 27
+description: "A guide for setting up RSDKv4 UWP on Xbox Dev Mode."
+tags:
+  - guides
+  - ports
+  - xbox
+  - uwp
+slug: rsdkv4-uwp-guide
+---
+
+# RSDKv4 UWP Guide
+
+RSDKv4 UWP is an Xbox Dev Mode UWP build of RSDKv4 with a launcher for **Sonic 1** and **Sonic 2**.
+
+Game data is **not included**. You must provide your own legally obtained `Data.rsdk` files.
+
+### Install the RSDKv4 UWP App
+
+- Download the latest `RSDKv4 UWP` release.
+- Install the `.msix` through the Xbox Device Portal.
+- Install the included dependency file.
+
+### Default Folder Setup
+
+If you are using the app's local storage, launch the app once so it can create its default folders. Then place your game data in the following layout:
+
+```text
+LocalState/
+  sonic1/
+    Data.rsdk
+  sonic2/
+    Data.rsdk
+```
+
+Folder names should be lowercase:
+
+- `sonic1`
+- `sonic2`
+
+### External Storage Setup
+
+You can also load game data from an external drive.
+
+Create the following folder layout on the external storage device:
+
+```text
+rsdkv4/
+  sonic1/
+    Data.rsdk
+  sonic2/
+    Data.rsdk
+```
+
+Then launch the app and press **Y** in the launcher to select the external storage root.
+
+### Script Mods
+
+For mods that use text scripts, you need to add the matching decompiled scripts from:
+
+[RSDKModding/RSDKv4-Script-Decompilation](https://github.com/RSDKModding/RSDKv4-Script-Decompilation)
+
+Expected layout:
+
+```text
+rsdkv4/
+  sonic1/
+    Data.rsdk
+    Scripts/
+      ...
+  sonic2/
+    Data.rsdk
+    Scripts/
+      ...
+```
+
+Use `Scripts` with a capital **S**.
+
+Text script mods require the matching decompiled script files to be present. Bytecode only mods do not need the `Scripts` folder.
+
+### Launcher Controls
+
+- Press **Y** in the launcher to select an external storage root.
+- Press **View** on a game to edit **Dev Menu** and **Language** options.
+- Select either **Sonic 1** or **Sonic 2** from the launcher to start the game.
+
+
+### Troubleshooting
+
+If the app doesn't launch:
+
+- On Series S, make sure Xbox resolution is set to 1440p or lower.
+
+If a game does not appear or launch:
+
+- Check that `Data.rsdk` is inside the correct game folder.
+- Make sure your folder names are lowercase: `sonic1` and `sonic2`.
+- If using external storage, press **Y** again and reselect the external storage root.
+- Remove or regenerate `settings.ini` if the launcher settings appear broken.
+
+---
+
+*Contributor: MewLew*
