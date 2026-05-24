@@ -1,0 +1,143 @@
+---
+title: "Hurrican Guide"
+sidebar_position: 13
+description: "A guide for setting up and using Hurrican on Xbox Dev Mode."
+tags:
+  - guides
+  - ports
+  - xbox
+  - uwp
+slug: hurrican-guide
+---
+
+# Hurrican Guide
+
+### Install the Hurrican App
+
+- Download the latest `Hurrican` release.
+- Install the `.msix` through the Xbox Device Portal.
+- Install the included dependency file.
+- Launch the app once so it can create its default LocalState files.
+
+### Controller Notes
+
+For 2 player mode, the second controller needs to be connected before launching the game.
+
+Controller order is:
+
+- Player 1: `0: Xbox One Game Controller`
+- Player 2: `1: Xbox One Game Controller`
+
+If you are setting controls in the config menu, press **A** on the D-Pad entry to switch to **X/Y axis** controls for the left stick.
+
+### Launch Arguments
+
+You can pass launch arguments by creating a file called:
+
+```text
+arguments.ini
+```
+
+Upload it to the app's LocalState folder using Xbox Device Portal:
+
+```text
+Hurrican/LocalState/
+```
+
+Use one argument per line.
+
+Example:
+
+```text
+--stretch
+--showfps
+--crt
+```
+
+### Included User Levels
+
+Seven user levels from [turricanforever.de](http://turricanforever.de/) are included:
+
+```text
+ChJees
+Genocide
+Second_Empire
+SecretPlanet
+Volcano_Temple
+Walkers_World
+valentine
+```
+
+You can launch a user level with `--custom` in `arguments.ini`.
+
+Example:
+
+```text
+--custom ChJees
+```
+
+### Useful Arguments
+
+These are the arguments the game knows about:
+
+| Argument | Description |
+| --- | --- |
+| `-H`, `-?`, `--help` | Show help. |
+| `-W`, `--windowmode` | Run in a window, not fullscreen. |
+| `-S`, `--stretch` | Stretch fullscreen output to fill the display. |
+| `-F`, `--showfps` | Show the current frames per second. |
+| `-D x`, `--depth x` | Set screen pixel depth to 16, 24, or 32. |
+| `-L`, `--lowres` | Use 320x240 low-resolution screen dimensions. |
+| `-NV`, `--novsync` | Disable VSync / double-buffering. |
+| `-NP`, `--nonpot` | Allow non-power-of-two texture sizes. |
+| `-TF x`, `--texfactor x` | Divide texture size by 1, 2, or 4. |
+| `-TS x`, `--texsizemin x` | Only resize textures above this size. |
+| `-PD x`, `--pathdata x` | Use another path for read-only game data. |
+| `-PS x`, `--pathsave x` | Use another path for save data. |
+| `-C`, `--crt` | Enable CRT-style effects except noise. |
+| `--scanlines` | Enable CRT scanlines. |
+| `--colorbleed` | Enable CRT color bleeding. |
+| `--screencurve` | Enable CRT screen curvature. |
+| `--screennoise` | Enable CRT screen noise. |
+| `--custom x` | Play a custom user level. |
+| `--level x` | Load a selected level map. |
+| `--arcade` | Treat keyboard as a joystick for X-Arcade style setups. |
+
+### Xbox Dev Mode Caveats
+
+Some arguments are desktop leftovers and may not be useful on Xbox Dev Mode.
+
+- `--windowmode` is not really relevant on Xbox. The app is expected to run fullscreen.
+- `--help` has no normal console window to print into, so it is not useful.
+- `--depth` may not make a visible difference with the current ANGLE/OpenGL ES path.
+- `--novsync` may not behave like desktop OpenGL. Use it only for testing.
+- `--pathdata` and `--pathsave` are best avoided. LocalState is the default.
+- `--arcade` is mainly for keyboard-to-joystick arcade setups, so it is not needed on Xbox.
+
+The safest arguments for normal use are:
+
+```text
+--stretch
+--showfps
+--crt
+--scanlines
+--colorbleed
+--screencurve
+--screennoise
+--lowres
+--custom [insert custom map name]
+--level [insert level name]
+```
+
+### Troubleshooting
+
+If launch arguments do not seem to work:
+
+- Check that the file is named exactly `arguments.ini`.
+- Check that it has been uploaded to `Hurrican/LocalState/`.
+- Check that each argument is on its own line.
+- Remove any desktop only arguments that may not apply to Xbox Dev Mode.
+
+---
+
+*Contributor: MewLew*
