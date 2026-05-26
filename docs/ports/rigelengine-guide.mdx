@@ -1,0 +1,89 @@
+---
+title: "Rigel Engine Guide"
+sidebar_position: 28
+description: "A guide for setting up and using Rigel Engine on Xbox Dev Mode."
+tags:
+  - guides
+  - ports
+  - xbox
+  - uwp
+slug: rigelengine-guide
+---
+
+# Rigel Engine Guide
+
+RigelEngine UWP is an Xbox Dev Mode UWP package for **RigelEngine**.
+
+This package works on **Xbox One** and **Xbox Series S/X**.
+
+Game data is **not included**. You must provide your own legally obtained **Duke Nukem II** files.
+
+### Install the RigelEngine UWP App
+
+- Download the latest `RigelEngine UWP` release.
+- Install the `.msix` through the Xbox Device Portal.
+- Install the included dependency file.
+- Launch the app once so it can create its default LocalState folder.
+
+### LocalState Game Data Setup
+
+After installing the MSIX and launching the game once, place your Duke Nukem II files in the app's LocalState folder.
+
+Example layout:
+
+```text
+LocalState/
+  DUKE2/
+    NUKEM2.EXE
+    *.CMP
+    *.F1
+    ...
+```
+
+The `DUKE2` folder should contain the Duke Nukem II game files.
+
+### External Storage Setup
+
+You can also keep the Duke Nukem II game data on an external drive.
+
+If your files are on an external drive:
+
+- Connect the external drive to the Xbox.
+- Launch Rigel Engine.
+- Use the file picker to choose the `DUKE2` folder on your **E:** drive.
+
+Once selected, RigelEngine should use that external folder as the game data location.
+
+### Acquiring the Game Data
+
+For notes on how to acquire the Duke Nukem II game data, read the **Acquiring the game data** section in the main repository README:
+
+[caorthann-celt/RigelEngineUWP - Acquiring the game data](https://github.com/caorthann-celt/RigelEngineUWP#acquiring-the-game-data)
+
+### Upscaling Filter Notes
+
+The **Pixel-perfect** upscaling filter uses integer scaling.
+
+RigelEngine's corrected 4:3 output needs enough vertical resolution for this mode to work properly. On Xbox, that means Pixel-perfect scaling is practical at:
+
+- `1440p`
+- `2160p`
+
+It is not practical at `1080p`.
+
+If your display is set to `1080p`, use **Sharp Bilinear** instead.
+
+### Recommended Display Setup
+
+### Troubleshooting
+
+If the game does not launch or cannot find the data files:
+
+- Make sure you launched the app once before copying files into LocalState.
+- Check that the folder is named exactly `DUKE2`.
+- Check that the required Duke Nukem II data files are also inside the same folder.
+- If using external storage, reselect the `DUKE2` folder with the file picker.
+
+---
+
+*Contributor: MewLew*
