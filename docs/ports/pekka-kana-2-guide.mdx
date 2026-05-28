@@ -1,0 +1,67 @@
+---
+title: "Pekka Kana 2 Guide"
+sidebar_position: 24
+description: "A guide for setting up Pekka Kana 2 on Xbox Dev Mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: pekka-kana-2-guide
+---
+
+# Pekka Kana 2 Guide
+
+Pekka Kana 2 is a classic 2D platformer where you play as Pekka the rooster.
+
+This Xbox dev mode build supports music, zipped custom map packs and 1440p/4K output.
+
+## What You Need
+
+- The Pekka Kana 2 `.msix`
+- The dependency package included with the release
+
+## Installing
+
+Install the `.msix` and the dependency package from the release.
+
+If you intend to install custom episodes, once installed, launch the game once so it can create its LocalState folder.
+
+## Saves and Settings
+
+Saves, settings, logs and custom episodes are stored here:
+
+```text
+PekkaKana2/LocalState/
+```
+
+## Custom Maps
+
+Custom map packs/episodes should stay zipped.
+
+Place the ZIP files here:
+
+```text
+PekkaKana2/LocalState/mapstore/
+```
+
+Do not extract the map packs yourself. The game can read them as ZIP files.
+
+## Controls
+
+The game supports controller input.
+
+A few useful notes:
+
+- in-game movement uses left stick or D-pad
+- menus use D-pad
+- the map cursor uses left stick
+- controls can be remapped
+- rumble works, but it needs to be enabled in Controls
+
+## Warning
+
+- Some levels and custom content may include flashing lights, screen shake or strong motion effects.
+
+---
+
+*Contributor: MewLew*
