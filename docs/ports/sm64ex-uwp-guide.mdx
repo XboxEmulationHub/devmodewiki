@@ -1,0 +1,171 @@
+---
+title: "sm64ex UWP Guide"
+sidebar_position: 33
+description: "A guide for setting up sm64ex UWP on Xbox Dev Mode."
+tags:
+  - guides
+  - ports
+  - xbox
+  - uwp
+slug: sm64ex-uwp-guide
+---
+
+# sm64ex UWP Guide
+
+:::warning
+No game assets are included with this port. Use your own legally obtained Super Mario 64 assets.
+:::
+
+## Install
+
+Download the `.msix`, dependency file and `sm64ex_asset_extract.zip`.
+
+Install the `.msix` and the included dependency file through Xbox Device Portal.
+
+## First Setup
+
+Before copying anything to the Xbox, use the included asset extract helper on your PC.
+
+1. Extract `sm64ex_asset_extract.zip`.
+2. Open the included README.
+3. Follow the instructions to generate the required files.
+
+Once finished, you should have:
+
+```text
+res\base.zip
+demo\*.bin
+```
+
+## External Storage Setup
+
+If you are using USB or external Xbox storage, use this layout:
+
+```text
+E:\sm64ex\res\base.zip
+E:\sm64ex\demo\*.bin
+```
+
+The game checks `E:\sm64ex` first if it exists and can be written to.
+
+## Internal Storage Setup
+
+If you are using internal storage, place the files in the app's LocalState folder:
+
+```text
+LocalState\res\base.zip
+LocalState\demo\*.bin
+```
+
+You can upload these through Xbox Device Portal.
+
+## Saves And Config
+
+Saves, settings, texture packs and DynOS packs use the same storage location as your assets.
+
+So if your assets are in:
+
+```text
+E:\sm64ex
+```
+
+your saves and config will be there too.
+
+If your assets are in LocalState, saves and config will be written to LocalState instead.
+
+## Frame Rate
+
+This build uses the sm64ex 60 FPS enhancement.
+
+For the US version, rendering is interpolated at 60 FPS while the game logic keeps the original 30 FPS timing.
+
+The Mario head intro still runs at 30 FPS.
+
+## Included Enhancements
+
+This build has these enabled:
+
+```text
+BETTERCAMERA=1
+TEXTURE_FIX=1
+DYNOS=1
+```
+
+That means Better Camera, upstream texture fixes and DynOS support are already included.
+
+## Texture Packs
+
+Loose texture replacements use the normal sm64ex `gfx` folder layout.
+
+Use:
+
+```text
+E:\sm64ex\gfx
+LocalState\gfx
+```
+
+For example:
+
+```text
+E:\sm64ex\gfx\actors
+E:\sm64ex\gfx\levels
+E:\sm64ex\gfx\textures
+```
+
+Texture packs can also be used as ZIP files in `res`:
+
+```text
+E:\sm64ex\res\render96.zip
+LocalState\res\render96.zip
+```
+
+The ZIP should contain the `gfx` folder at the top level:
+
+```text
+render96.zip
+└── gfx
+    ├── actors
+    ├── levels
+    └── textures
+```
+
+## Large Texture Pack Fix
+
+Large texture packs can be heavy on Xbox if sm64ex tries to precache everything at startup.
+
+If the game crashes or fails to boot after adding a large texture pack, open:
+
+```text
+E:\sm64ex\sm64config.txt
+LocalState\sm64config.txt
+```
+
+Set:
+
+```text
+precache false
+```
+
+This keeps texture packs enabled, but stops the game loading the whole pack at startup.
+
+## DynOS Packs
+
+DynOS packs go here:
+
+```text
+E:\sm64ex\dynos\packs
+LocalState\dynos\packs
+```
+
+## Quick Checks
+
+If the game does not start, check:
+
+- `base.zip` is inside `res`
+- demo `.bin` files are inside `demo`
+- the files are under `E:\sm64ex` or LocalState
+- large texture packs have `precache false` set if startup is failing
+
+---
+
+*Contributor: MewLew*
