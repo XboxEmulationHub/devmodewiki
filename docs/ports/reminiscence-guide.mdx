@@ -1,0 +1,113 @@
+---
+title: "Flashback / REminiscence Guide"
+sidebar_position: 12
+description: "A guide for setting up Flashback with the REminiscence engine on Xbox dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: reminiscence-guide
+---
+
+
+### Before You Start
+- Install the REminiscence app on your Xbox.
+- Launch the app once, then close it to create the required folders and configuration files.
+- Open the app's `LocalState` folder using the Xbox Device Portal file browser.
+- The generated `rs.cfg` file contains the game settings and can be safely edited.
+
+Your `LocalState` folder should contain:
+
+```text
+LocalState/
+  DATA/
+  rs.cfg
+  arguments.ini          optional
+```
+
+### Add the Base Game
+1. Install the original 1992 release of Flashback on your PC through GOG or Steam.
+   - The 2013 remake is not supported.
+2. Open the game's installation directory and navigate to:
+
+```text
+Flashback_Data/StreamingAssets/data/
+```
+
+3. Compress the entire `data` folder into a ZIP archive.
+4. Upload the ZIP archive to the app's `LocalState` folder through the Xbox Device Portal.
+5. Select **Yes** when prompted to extract the archive.
+6. Rename the extracted `data` folder to `DATA`.
+   - The folder name must be fully capitalised.
+
+When complete, the `DATA` folder should contain files such as:
+
+- `level1.map`
+- `level1.lev`
+- `level1.bnq`
+
+### Optional: Amiga Soundtrack
+- The default DOS/GOG `.PRF` music is included with the base game files and works without additional setup.
+- To use the Amiga soundtrack:
+  1. Obtain the `flashback.lha` archive containing the `mod.*` music tracks.
+     - The Exotica wiki can be used as a reference.
+  2. Extract the archive using 7-Zip or a similar tool.
+  3. Copy all `mod.*` files directly into `LocalState/DATA/`.
+  4. Open `LocalState/rs.cfg` and change:
+
+```text
+use_prf_music=true
+```
+
+to:
+
+```text
+use_prf_music=false
+```
+
+- Change the setting back to `true` to restore the DOS/GOG soundtrack.
+
+### Optional: Sega CD Dialogue Voices
+1. Obtain a Sega CD Flashback disc image in `.iso` format.
+2. Mount the ISO on your PC or extract it using 7-Zip.
+3. Open the ISO's `data` folder.
+4. Extract `VOICE.VCE`.
+5. Copy the file to:
+
+```text
+LocalState/DATA/VOICE.VCE
+```
+
+### Optional: Launch Arguments
+- Create a text file named `arguments.ini`. Then upload it to the `LocalState` folder.
+- This file can configure widescreen mode, autosaves, scaling, language and MIDI settings.
+- See [ARGUMENTS.md](https://github.com/caorthann-celt/REminiscence-UWP/blob/main/ports/uwp/ARGUMENTS.md) for the complete list of supported options.
+
+A basic configuration is:
+
+```text
+--widescreen=adjacent
+--scaler=tv2x@2
+```
+
+- Only use one `--scaler` line at a time.
+
+### Xbox Controller Layout
+
+| Xbox Control | Game Action |
+| --- | --- |
+| D-pad or Left Stick | Movement |
+| A | Confirm |
+| B | Secondary action / Hold or ready gun |
+| X | Talk / Use / Run / Shoot |
+| Y | Inventory / Skip cutscene |
+| Menu | Options / Pause |
+| View | Inventory |
+
+### Quick Checklist
+- Base game files are inside `LocalState/DATA/`.
+- Amiga soundtrack users have copied the `mod.*` files into `DATA` and set `use_prf_music=false`.
+- Sega CD voice users have copied `VOICE.VCE` into `DATA`.
+- Optional launch settings are stored in `LocalState/arguments.ini`.
+
+---

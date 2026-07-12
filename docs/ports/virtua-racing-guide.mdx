@@ -1,0 +1,39 @@
+---
+title: "Virtua Racing Guide"
+sidebar_position: 60
+description: "A guide for setting up Virtua Racing on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: virtua-racing-guide
+---
+
+
+### Requirements
+- You will require the **MAME Virtua Racing** game files in the format `vr.zip`.
+- Do not extract `vr.zip`.
+
+### Install the Virtua Racing App
+- Install `Series-X-VirtuaRacing102.appx` via the dev portal.
+
+### External Storage Setup
+- Add `vr.zip` to the root of your **E:** drive.
+- On initial launch, the app will automatically copy `vr.zip` to LocalState.
+
+### Internal Storage Setup
+- Launch the game once.
+- Close the app once it black screens.
+- Open the Dev Portal file explorer.
+- Go to:
+
+```text
+Virtua Racing/LocalState/roms
+```
+
+- Upload `vr.zip` to this folder.
+- Do not extract `vr.zip`.
+
+---
+
+*Contributor: MewLew*
