@@ -1,0 +1,131 @@
+---
+title: "Doom64EX Classic Guide"
+sidebar_position: 10
+description: "A guide for setting up Doom64EX Classic on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: doom64ex-classic-guide
+---
+
+
+### Requirements
+- You will need a legally owned **Doom 64 N64** ROM in `.z64` format.
+- You will also need the Windows release, as it includes `WadGen.exe`:
+
+```text
+https://github.com/caorthann-celt/Doom64EX-SDL2/releases/tag/v2.6
+```
+
+- Only the USA `doom.z64` ROM has been tested. Other ROM versions may work, but have not been checked.
+
+### Generate the Base Files
+- Unzip the Windows release folder.
+- Double click `WadGen.exe`.
+- Select your legally owned Doom 64 N64 `.z64` ROM in the file explorer.
+- Run the conversion.
+- If it errors, try running it again.
+
+Once successful, `WadGen.exe` will create:
+
+```text
+DOOM64.WAD
+DOOMSND.SF2
+```
+
+### Internal Storage Setup
+- Launch the Xbox app once.
+- Close the app.
+- This creates the app's LocalState folder.
+- Open the Xbox Device Portal file browser.
+- Place both generated files here:
+
+```text
+Doom64ex/LocalState/
+```
+
+The folder should contain:
+
+```text
+Doom64ex/LocalState/DOOM64.WAD
+Doom64ex/LocalState/DOOMSND.SF2
+```
+
+### External Storage Setup
+- Create the following folder on your external drive:
+
+```text
+E:/doom64ex/
+```
+
+- Place both generated files in that folder.
+
+The folder should contain:
+
+```text
+E:/doom64ex/DOOM64.WAD
+E:/doom64ex/DOOMSND.SF2
+```
+
+### Custom WAD Setup
+Custom WADs can be placed in either of these folders:
+
+```text
+LocalState/wads/
+E:/doom64ex/wads/
+```
+
+- Choose **Custom WAD** from the launcher.
+- The left list shows every WAD found in both locations.
+- Press **A** to add a WAD to the load order on the right.
+- Press **X** to remove a WAD from the load order.
+- Press **Menu** to start the game with the selected load order.
+
+For multiple WADs, add them in the order you want them loaded.
+
+To move a selected WAD through the load order:
+
+- Hold **View**.
+- Press **D-pad Up** or **D-pad Down**.
+
+### Default Xbox Controls
+
+| Xbox Control | Default Action |
+| --- | --- |
+| Left Stick | Move |
+| Right Stick | Look |
+| A | Use |
+| X | Run |
+| Y | Automap |
+| LB / RB | Previous / next weapon |
+| RT | Fire |
+
+### Control Settings
+Everything can be changed in:
+
+```text
+Options > Controls > Bindings > Gamepad
+```
+
+This page also includes separate **Right Stick X** and **Right Stick Y** sensitivity sliders, vertical look, and invert look.
+
+The left stick is analogue:
+
+- a light push walks
+- a full push runs
+
+Autorun is mainly useful for the D-pad if you choose to change the movement binds.
+
+### Useful Settings
+- Change the resolution in **Options > Video**.
+- To remove the mouse cursor in the top-left corner, go to **Options > Setup** and turn **Show Cursor** off.
+- Leave the frame rate set to **Capped**.
+- **Smooth** currently causes problems and is best avoided.
+
+### Saves and Settings
+Saves and settings stay in LocalState.
+
+---
+
+*Contributor: MewLew*
