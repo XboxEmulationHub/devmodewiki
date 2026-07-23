@@ -1,0 +1,116 @@
+---
+title: "DOSBox Pure UWP Guide"
+sidebar_position: 4
+description: "A guide for setting up DOSBox Pure UWP on dev mode."
+tags:
+  - guides
+  - emulators
+  - xbox
+slug: dosbox-pure-uwp-guide
+---
+
+
+### Requirements
+- You will need the latest DOSBox Pure UWP `.zip` release.
+- DOSBox Pure UWP is a standalone DOS emulator for Windows and Xbox Dev Mode.
+- It does not require RetroArch.
+
+### Install DOSBox Pure UWP
+- Download the latest `.zip` release.
+- Extract the `.zip`.
+- Install the `.msix` via the Xbox Device Portal.
+
+### Add DOS Games
+- Launch DOSBox Pure UWP.
+- Select **Load Game**.
+- Press **A** to open the built-in file browser.
+- Browse to your DOS game file.
+- Select the file to launch it.
+
+Supported formats include:
+
+| Format | Description |
+| --- | --- |
+| `.zip` | ZIP archive containing DOS game files |
+| `.dosz` | DOSBox Pure compressed archive |
+| `.exe` | DOS executable |
+| `.com` | DOS COM file |
+| `.bat` | DOS batch file |
+| `.iso` | CD-ROM image |
+| `.chd` | Compressed CD image |
+| `.cue` + `.bin` | CUE and BIN CD image |
+| `.img` / `.ima` | Floppy disk image |
+| `.vhd` | Virtual hard disk |
+| `.conf` | DOSBox configuration file |
+
+### Creating ZIP Files
+The easiest way to package a DOS game is as a `.zip` file.
+
+For single-folder games, zip the contents of the game folder.
+
+Example:
+
+```text
+DOOM/
+├── DOOM.EXE
+├── DOOM.WAD
+├── SETUP.EXE
+└── README.TXT
+```
+
+On Windows:
+
+```text
+Right click the folder > Send to > Compressed (zipped) folder
+```
+
+### ZIP File Notes
+- Use uppercase filenames and extensions where possible.
+- Include launchers such as `INSTALL.BAT` or `SETUP.EXE` if the game needs them.
+- Do not put ZIP files inside other ZIP files.
+- Keep ZIP files below 4GB where possible on Xbox.
+
+### Multiple Disk Games
+Games with multiple floppy disks can be packaged in one ZIP.
+
+Example:
+
+```text
+KQ5.ZIP
+├── DISK1/
+├── DISK2/
+└── DISK3/
+```
+
+DOSBox Pure's built-in menu can be used to swap disks during gameplay.
+
+### Default Xbox Controls
+
+| Xbox Control | Default Action |
+| --- | --- |
+| D-pad | Navigate menus / arrow keys in-game |
+| A | Confirm / primary action |
+| B | Back / cancel |
+| X | Varies by game |
+| Y | Varies by game |
+| LB / RB | Page up/down in menus / disk swap |
+| LT / RT | Triggers, mapped per game |
+| Left Stick | Mouse emulation |
+| Right Stick | Scroll / secondary input |
+| Start | PUREMENU |
+| Back | Close menu / exit |
+
+### Keyboard and Mouse
+- Keyboard input uses standard DOS keyboard mapping.
+- On Windows, USB mouse input works directly.
+- On Xbox, mouse input is emulated through the left analogue stick.
+- USB mouse input is not supported on Xbox due to UWP platform limitations.
+
+Useful keyboard shortcuts:
+
+| Key | Action |
+| --- | --- |
+| F10 | Toggle menu |
+| Ctrl + L | Open system file picker fallback |
+
+---
