@@ -1,0 +1,145 @@
+---
+title: "uHexen2 Guide"
+sidebar_position: 60
+description: "A guide for setting up uHexen2 on dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: uhexen2-guide
+---
+
+
+### Requirements
+- You will need the game data from a legally owned copy of **Hexen II**.
+- The app does not include the retail PAK files.
+- This is **Hexen II: Hammer of Thyrion**, packaged for Xbox Dev Mode.
+
+### Install uHexen2
+- Install the uHexen2 app via the Xbox Device Portal including the dependency file.
+- Launch the app once, then close it.
+- This creates the app's LocalState folder.
+
+### Base Game Setup
+Using the Xbox Device Portal file browser, place the base game PAK files here:
+
+```text
+LocalState/data1/pak0.pak
+LocalState/data1/pak1.pak
+```
+
+Do not leave the files inside a ZIP file.
+
+Do not place them inside another folder.
+
+Once the files are in place, start the app again.
+
+### Portal of Praevus Setup
+Portal of Praevus requires the base game PAK files as well as its own retail PAK file.
+
+Keep the `data1` folder in place, then add:
+
+```text
+LocalState/portals/pak3.pak
+```
+
+Close and reopen the app after copying the file.
+
+Portal of Praevus is detected automatically.
+
+The Single Player menu will show:
+
+- **New Mission** for Portal of Praevus
+- **Old Mission** for the original Hexen II campaign
+
+Portal saves are stored here:
+
+```text
+LocalState/portals/
+```
+
+### Music Setup
+External music replaces the original MIDI tracks and is required for music playback in this UWP build. Without these files, the game will have no music.
+
+OGG is recommended, but this build also accepts:
+
+- Opus
+- MP3
+- FLAC
+- WAV
+- `.it`
+- `.s3m`
+- `.xm`
+- `.mod`
+
+### Base Game Music
+Place the base game music files here:
+
+```text
+LocalState/data1/music/
+```
+
+The files must use the game's track names.
+
+For OGG, the base game tracks should be named:
+
+```text
+casa1.ogg
+casa2.ogg
+casa3.ogg
+casa4.ogg
+egyp1.ogg
+egyp2.ogg
+egyp3.ogg
+meso1.ogg
+meso2.ogg
+meso3.ogg
+roma1.ogg
+roma2.ogg
+roma3.ogg
+casb1.ogg
+casb2.ogg
+casb3.ogg
+```
+
+Do not use `trackXX` names.
+
+### Portal of Praevus Music
+Place Portal music here:
+
+```text
+LocalState/portals/music/
+```
+
+Use these track names:
+
+```text
+tulku1.ogg
+tulku2.ogg
+tulku3.ogg
+tulku4.ogg
+tulku5.ogg
+tulku6.ogg
+tulku7.ogg
+tulku8.ogg
+tulku9.ogg
+tulku10.ogg
+```
+
+### Enable Music In-Game
+In the game, open **Options**.
+
+Set:
+
+```text
+Music Type: All Codecs
+```
+
+Then raise **Music Volume** above zero.
+
+MIDI and CD music modes do not play these external music files in the UWP build.
+
+### Saves and Settings
+Saves and settings are kept in LocalState.
+
+---
