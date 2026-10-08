@@ -1,0 +1,80 @@
+---
+title: OpenCE UWP
+sidebar_position: 27
+description: OpenCE UWP for Xbox Dev Mode.
+tags:
+  - xbox
+  - ports
+  - uwp
+slug: open-ce
+---
+
+Based on OpenCE PC build 155.
+
+### Installation
+
+1. Make sure your Xbox is in Dev Mode.
+2. Open Xbox Device Portal on your computer.
+3. Open **Home → Add**.
+4. Upload `OpenCE-UWP-x64.appx`.
+5. Finish the installation.
+6. Set OpenCE as a **Game** in Dev Mode.
+7. Launch OpenCE.
+
+### Internal Storage Setup
+
+1. Launch OpenCE once to create the `LocalState/OpenCE` folder.
+2. Place your Halo ISO or XISO in the app's `LocalState/OpenCE` folder.
+3. Launch OpenCE. Your game should appear in the list.
+4. Select the ISO or XISO.
+5. Wait for extraction to reach 100%.
+
+The extracted game files, saves, profiles, settings, and cache are stored in `LocalState/OpenCE`.
+
+Future updates will not overwrite the game files, so you will not need to reinstall your game after updating OpenCE.
+
+### External Storage Setup
+
+1. Connect a USB storage drive to the Xbox.
+2. Place your Halo ISO or XISO on the USB drive.
+3. Launch OpenCE and select **External**.
+4. Browse to and select the ISO or XISO.
+5. OpenCE will create an `OpenCE` folder on the drive.
+6. Wait for extraction to reach 100%.
+
+Keep the USB drive connected when using OpenCE. Saves, profiles, settings, cache, and game files are stored inside the external `OpenCE` folder.
+
+### Custom Maps
+
+Place custom map files directly inside the `custom_maps` folder.
+
+#### Internal Storage
+
+`LocalState\OpenCE\custom_maps`
+
+#### External Storage
+
+`USB:\OpenCE\custom_maps`
+
+Copy the loose `.map` files into the folder. Do not copy the downloaded map's enclosing folder.
+
+Halo Custom Edition maps also require these three Halo Custom Edition resource maps in the same `custom_maps` folder:
+
+- `bitmaps.map`
+- `sounds.map`
+- `loc.map`
+
+Restart OpenCE after adding maps. Compatible maps will appear under **CUSTOM SINGLEPLAYER** or **CUSTOM MULTIPLAYER**.
+
+Maps requiring OpenSauce are not supported.
+
+### Tips
+
+1. OpenCE stores cache data, so you may experience stutters when loading something for the first time. This should quickly improve as the cache builds.
+2. It is recommended to play multiplayer maps solo first before joining a large online game.
+
+Wort, Wort, Wort.
+
+---
+
+*Contributor: ReviveMe*
