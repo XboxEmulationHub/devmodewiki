@@ -1,0 +1,77 @@
+---
+sidebar_position: 2
+title: NXbox (Nintendo Switch) Guide
+description: Installing and using NXbox, an experimental Nintendo Switch emulator for Xbox Series X Developer Mode
+tags:
+  - emulation
+  - switch
+  - nxbox
+  - uwp
+  - experimental
+slug: nxbox-guide
+---
+
+import AtAGlance from '@site/src/components/AtAGlance';
+
+# NXbox (Nintendo Switch) Guide
+
+NXbox is a Nintendo Switch emulator for Xbox Series X in Developer Mode, built on [Eden](https://git.eden-emu.dev/eden-emu/eden). It has its own Direct3D 12 renderer, a console-style game library, one-button mods from GameBanana, cheats, and it updates itself from its GitHub releases. *It is a beta: no game is fully playable without bugs yet.*
+
+<AtAGlance
+  title="NXbox (Switch)"
+  summary="Beta Switch emulator with a native Direct3D 12 renderer; several games reach gameplay, all with open bugs."
+  testedOn="10/17/2026"
+  rows={[
+    { label: 'Dev Mode', value: 'Required (Retail not supported)' },
+    { label: 'Console', value: 'Tested on Series X only; Series S is untested' },
+    { label: 'App type', value: 'Must run as Game (5 GB); as App it only gets 1 GB and games crash' },
+    { label: 'Storage', value: 'LocalState\\games, or NXbox\\games on a USB drive' },
+    { label: 'Difficulty', value: 'Medium - about 15 minutes' },
+    { label: 'BIOS/keys', value: 'Your own prod.keys and title.keys; firmware dumped from your own console for some games' },
+    { label: 'Controllers', value: 'Xbox gamepad; choose A or B to confirm in setup' },
+  ]}
+  works={[
+    'Super Mario 3D World menus, World 1 map and level 1-1 at about 59 FPS',
+    'Breath of the Wild, Persona 5 Royal and Mario Kart 8 Deluxe reach gameplay',
+    '.nsp, .nsz and .xci games; .nsz is converted on the console',
+  ]}
+  issues={[
+    'Every game still has graphical or performance bugs',
+    'First time a new effect appears it can stutter while shaders compile',
+    'Installing as App instead of Game causes bad allocation crashes',
+  ]}
+  notes="NXbox ships no games, firmware or keys. Use dumps from a console you own."
+/>
+
+**Developed by:** NSPX ([NspxMiguel/NXbox](https://github.com/NspxMiguel/NXbox))
+
+## Prerequisites
+
+*   **Xbox Series X in Developer Mode**, with the Device Portal reachable from your PC.
+*   **Your own keys:** `prod.keys` and `title.keys` dumped from your Switch.
+*   **Your own games** as `.nsp`, `.nsz` or `.xci`. Some games (Mario Kart 8 Deluxe, for example) also need firmware dumped from your console.
+
+## Install
+
+1.  **Set new apps to install as games.** In the Device Portal settings, turn on `DefaultUWPContentTypeToGame` *before* installing. NXbox needs the 5 GB a game gets; as an app it is limited to 1 GB.
+2.  **Download** the `.appx` from the [latest release](https://github.com/NspxMiguel/NXbox/releases/latest).
+3.  **Install it:** Device Portal - **My games & apps** - **Add**, choose the `.appx`, then **Start**.
+4.  If you installed it before step 1, open Dev Home, select NXbox - **View details**, and set **App type** to **Game**.
+
+## Add keys and games
+
+1.  Launch NXbox once so it creates its folders, then close it.
+2.  In the Device Portal **File explorer**, open `LocalAppData` - the NXbox package - `LocalState`.
+3.  Upload `prod.keys` and `title.keys` to `LocalState\eden\keys`.
+4.  Upload games to `LocalState\games`. Internal developer storage is small, so for big games use a USB drive with an `NXbox\games` folder instead.
+5.  Optional: put firmware files in `LocalState\firmware`.
+6.  Launch NXbox and pick the game in the library.
+
+## Tips
+
+*   **Renderer:** the native Direct3D 12 renderer is the default. To use the older OpenGL path, add the line `renderer_backend=0` to `LocalState\eden_settings.txt`.
+*   **One game as its own app:** [NXbox Pack](https://github.com/NspxMiguel/NXbox/tree/main/tools/nxbox-pack) (Windows, macOS, Linux) turns a game you own into its own Xbox app that boots straight into it.
+*   **Updates:** NXbox checks its GitHub releases and updates itself.
+*   **Crash reports:** attach `LocalState\nxbox_crash.txt` when you [open an issue](https://github.com/NspxMiguel/NXbox/issues).
+
+The full compatibility table is in the [NXbox README](https://github.com/NspxMiguel/NXbox#compatibility).
