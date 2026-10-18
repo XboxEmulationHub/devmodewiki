@@ -1,0 +1,49 @@
+---
+sidebar_position: 4
+title: NXbox Guide
+description: A guide for installing and using NXbox, an experimental Nintendo Switch emulator for Xbox Series consoles.
+tags:
+  - emulation
+  - switch
+  - uwp
+  - experimental
+slug: nxbox-guide
+---
+
+NXbox is an experimental Nintendo Switch emulator for Xbox Series consoles in Developer Mode.
+
+### Installation
+
+1. Make sure your Xbox Series X is in Developer Mode.
+2. Download the `.appx` from the [latest NXbox release](https://github.com/NspxMiguel/NXbox/releases/latest).
+3. In Device Portal, open **My games & apps → Add**.
+4. Upload the `.appx` and select **Start**.
+5. Once installed, open Dev Home, select NXbox → **View details**, and set **App type** to **Game**.
+
+### Keys and Game Setup
+
+1. Launch NXbox once to generate its folders, then close it.
+2. In Device Portal, open **File explorer** → `LocalAppData` → NXbox package → `LocalState`.
+3. Upload your `prod.keys` and `title.keys` to `LocalState\eden\keys`.
+4. Upload your games to `LocalState\games`.
+5. If required, upload your firmware files to `LocalState\firmware`.
+6. Launch NXbox and select your game from the library.
+
+Supported game formats include `.nsp`, `.nsz` and `.xci`. Some games, such as Mario Kart 8 Deluxe, may also require firmware dumped from your own console.
+
+Internal developer storage is limited, so larger games can be stored on a USB drive in an `E:\NXbox\games` folder.
+
+### Settings and Tips
+
+- **Renderer:** Direct3D 12 is the default. To use the older OpenGL renderer, add `renderer_backend=0` to `LocalState\eden_settings.txt`.
+- **Standalone apps:** [NXbox Pack](https://github.com/NspxMiguel/NXbox/tree/main/tools/nxbox-pack) packages games you own as individual Xbox apps that launch directly into the game. Available for Windows, macOS and Linux.
+- **Updates:** NXbox checks its GitHub releases and updates itself.
+- **Crash reports:** If you encounter a crash, attach `LocalState\nxbox_crash.txt` when [reporting an issue](https://github.com/NspxMiguel/NXbox/issues).
+
+### Compatibility
+
+The full compatibility table is available in the [NXbox README](https://github.com/NspxMiguel/NXbox#compatibility).
+
+---
+
+*Contributor: NspxMiguel*
