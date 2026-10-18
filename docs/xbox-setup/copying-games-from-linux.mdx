@@ -1,0 +1,41 @@
+---
+sidebar_position: 3
+title: Copying Games from Linux to NTFS External Drive
+description: Games copied from a Linux PC to an NTFS drive can fail to start without error notification.
+tags:
+  - xbox-setup
+  - linux
+  - troubleshooting
+slug: copying-games-from-linux
+---
+
+# Copying Games from Linux to NTFS External Drive
+
+If you copy games onto your drive from a Linux PC, some of them may not start. The emulator silently fails instead, with nothing on screen and nothing in its log, so it looks like a bad dump or a drive going bad.
+
+The problem is the file permissions. The console runs an operating system based on Windows, so every file carries a list saying who is allowed to open it. Linux writes that list differently, and the entry the Xbox apps need ends up missing, so they cannot open the file even though there is nothing wrong with it.
+
+## Checking a game
+
+Plug the drive into the Linux PC and run:
+
+```bash
+getfattr -n system.ntfs_acl -e hex --absolute-names "/path/to/Game.iso" \
+  | grep -q 010200000000000f0200000001000000 && echo ok || echo "needs fixing"
+```
+
+## Fixing it
+
+Run this on the game's folder first, then on the game file. Both are needed, because a file that already exists does not pick up its folder's permissions afterwards.
+
+```bash
+# the folder
+setfattr -n system.ntfs_acl -v 0x01000480140000002400000000000000340000000102000000000005200000002002000001020000000000052000000020020000020034000200000000031400ff011f0001010000000000010000000000031800ff011f00010200000000000f0200000001000000 "/path/to/folder"
+
+# the game file
+setfattr -n system.ntfs_acl -v 0x01000480140000002400000000000000340000000102000000000005200000002002000001020000000000052000000020020000020034000200000000031400ff011f0001010000000000010000000000001800ff011f00010200000000000f0200000001000000 "/path/to/Game.iso"
+```
+
+This writes a standard set of permissions, so only run it on files that the check above reports. You need `ntfs-3g` and the `attr` package installed.
+
+Copying the game into a folder that already works does not help, because Linux writes the same permissions wherever the file lands. Copying from Windows normally works, and so does letting the console write the file itself.
