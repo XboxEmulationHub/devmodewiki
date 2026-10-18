@@ -1,0 +1,75 @@
+---
+title: Warthog UWP
+sidebar_position: 72
+description: Warthog UWP for Xbox Dev Mode.
+tags:
+  - xbox
+  - ports
+  - uwp
+slug: warthog-guide
+---
+
+### Installation
+
+1. Make sure your Xbox is in Dev Mode.
+2. Open Xbox Device Portal on your computer.
+3. Open **Home → Add**.
+4. Upload `Warthog-UWP-x64.appx`.
+5. Finish the installation.
+6. Set Warthog as a **Game** in Dev Mode.
+7. Launch Warthog.
+
+### Internal Storage Setup
+
+1. Launch Warthog once to create the `Developmentfiles/Warthog` folder.
+2. Place your Halo ISO or XISO in the app's `Developmentfiles/Warthog` folder.
+3. Launch Warthog. Your game should appear in the list.
+4. Select the ISO or XISO.
+5. Wait for extraction to reach 100%.
+
+The extracted game files, saves, profiles, settings, and cache are stored in `Developmentfiles/Warthog`.
+
+Future updates will not overwrite the game files, so you will not need to reinstall your game after updating Warthog.
+
+### External Storage Setup
+
+1. Connect a USB storage drive to the Xbox.
+2. Place your Halo ISO or XISO on the USB drive.
+3. Launch Warthog and select **External**.
+4. Browse to and select the ISO or XISO.
+5. Warthog will create an `Warthog` folder on the drive.
+6. Wait for extraction to reach 100%.
+
+Keep the USB drive connected when using Warthog. Saves, profiles, settings, cache, and game files are stored inside the external `Warthog` folder.
+
+### Custom Maps
+
+Place custom map files directly inside the `custom_maps` folder.
+
+#### Internal Storage
+
+`Developmentfiles\Warthog\custom_maps`
+
+#### External Storage
+
+`USB:\Warthog\custom_maps`
+
+Copy the loose `.map` files into the folder. Do not copy the downloaded map's enclosing folder.
+
+Halo Custom Edition maps also require these three Halo Custom Edition resource maps in the same `custom_maps` folder:
+
+- `bitmaps.map`
+- `sounds.map`
+- `loc.map`
+
+Maps requiring OpenSauce are not supported.
+
+### Tips
+
+1. Warthog stores cache data, so you may experience stutters when loading something for the first time. This should quickly improve as the cache builds.
+
+Wort, Wort, Wort.
+
+---
+
+*Contributor: ReviveMe*
