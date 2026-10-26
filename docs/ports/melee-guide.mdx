@@ -1,0 +1,101 @@
+---
+title: "Melee Guide"
+sidebar_position: 23
+description: "A guide for setting up Melee UWP on Xbox dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: melee-uwp-guide
+---
+
+
+Melee UWP `0.4.2.0` brings Melee to Xbox Dev Mode with online play, memory cards, texture packs, and in-game settings.
+
+### Requirements
+- **Super Smash Bros. Melee USA, revision 2 (NTSC-U 1.02)** disc image. None is included, so you must supply your own.
+- The required game ID is `GALE01`.
+- Supported image formats: `.iso`, `.gcm`, `.ciso`, `.rvz`, `.gcz`, and `.wia`.
+- Extract ZIP files before selecting an image.
+
+### Install the Melee UWP App
+- Install the Melee `.appx` package via the Xbox Device Portal.
+- Install the `Microsoft.VCLibs` dependency file.
+- Launch **Melee UWP** from Dev Mode.
+
+### Internal Storage Setup
+- Place your game image in:
+
+```text
+D:\DevelopmentFiles\Melee
+```
+
+- Launch the app.
+- The app creates its folders there on first launch.
+
+### External Storage Setup
+- Launch the app.
+- In **Choose Disc**, select your external drive.
+- The app creates a `Melee` folder on that drive for saves, settings, music, and texture packs.
+
+For example, if your drive is `E:`, the folder is:
+
+```text
+E:\Melee
+```
+
+The cache is always stored on the internal drive, even when playing from USB:
+
+```text
+D:\DevelopmentFiles\Melee\cache
+```
+
+### Texture Packs
+- Extract Dolphin-format `tex1_*.png` or `tex1_*.dds` packs into the `textures` folder on your selected drive.
+- Keep the pack's subfolders, including `GALE01` if present.
+
+Internal:
+
+```text
+D:\DevelopmentFiles\Melee\textures
+```
+
+USB (if your drive is `E:`):
+
+```text
+E:\Melee\textures
+```
+
+To reload files after copying them, turn **Custom HD textures** off and back on in:
+
+```text
+Settings > Graphics
+```
+
+### In-Game Settings
+Press **Start + Select** together to open or close the menu.
+
+| Xbox Control | Action |
+| --- | --- |
+| D-pad | Navigate |
+| A | Select |
+| B | Go back |
+| Start + Select | Open or close the menu |
+
+Graphics, audio, controls, and online options are available from the menu.
+
+### Direct Connect
+Both players need the same build and game image. Works with both Xbox and PC players.
+
+Open:
+
+```text
+VS Mode > ONLINE > DIRECT CONNECT
+```
+
+- One player chooses **Wait for a friend to call me** and presses **Y** to copy their connect code.
+- The other player chooses **Enter a friend's code**, enters the eight characters after `#`, and presses **Start** to call.
+
+Clipboard codes and recent opponents can also be selected from the Direct Connect screen. Some networks may not support a direct connection.
+
+---
