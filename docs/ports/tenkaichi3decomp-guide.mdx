@@ -1,0 +1,72 @@
+---
+title: "Tenkaichi3Decomp Guide"
+sidebar_position: 67
+description: "A guide for setting up Tenkaichi3Decomp UWP on Xbox dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: tenkaichi3decomp-uwp-guide
+---
+
+### Requirements
+- **Unmodified USA ISO** of the game.
+- The required game ID is `SLUS-21678`.
+- Optional: a **European ISO** (`SLES-54945`) adds Spanish, German, French, and Italian.
+
+### Install the Tenkaichi3Decomp UWP App
+- Install `bt3.msix` via the Xbox Device Portal.
+- Install the included x64 VCLibs dependency file.
+- Launch the app from Dev Mode.
+
+### Internal Storage Setup
+- Place your ISO in:
+
+```text
+D:\DevelopmentFiles\BT3
+```
+
+- Launch the app and select your ISO on first launch.
+- Choose **Internal**, then **Install and Play**.
+- Game data extracts to `D:\DevelopmentFiles\BT3`.
+
+### External Storage Setup
+- Launch the app and select the ISO on your external drive, usually `E:\`.
+- Choose **External**, then **Install and Play**.
+- Game data extracts to:
+
+```text
+E:\BT3
+```
+
+### Storage Notes
+- The ISO can be removed after extraction.
+- Keep the external drive connected to play when using external storage.
+- Saves and settings stay in `D:\DevelopmentFiles\BT3` with either setup.
+
+### Online Play
+- Host or join using room and lobby codes, or use a direct address and port.
+- Codes use upstream's public code service.
+- PC lobbies and spectators require a compatible PC build, version `0.1.38.8` or newer.
+- Quick Match may reject unofficial builds.
+
+### Texture Packs
+- DDS and PNG textures are supported, including subfolders.
+- Place packs in the `textures` folder on your selected drive.
+
+Internal:
+
+```text
+D:\DevelopmentFiles\BT3\textures
+```
+
+External (if your drive is `E:`):
+
+```text
+E:\BT3\textures
+```
+
+- The internal texture folder takes priority when both exist.
+- Large packs may affect frame rate.
+
+---
