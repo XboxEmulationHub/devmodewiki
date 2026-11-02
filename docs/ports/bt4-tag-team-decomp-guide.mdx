@@ -1,0 +1,69 @@
+---
+title: "BT4 Tag Team Decomp Guide"
+sidebar_position: 2
+description: "A guide for setting up BT4 Tag Team Decomp UWP on Xbox dev mode."
+tags:
+  - guides
+  - ports
+  - xbox
+slug: bt4-tag-team-decomp-uwp-guide
+---
+
+### Requirements
+- A compatible **BT4 B14 Rev2** ISO, either **Spanish (LATINO)** or **English**.
+
+### Install the BT4 Tag Team UWP App
+- Install `bt4.msix` via the Xbox Device Portal.
+- Install `Microsoft.VCLibs.x64.14.00.appx`.
+- Launch the app from Dev Mode.
+
+### Internal Storage Setup
+- Place your ISO in:
+
+```text
+D:\DevelopmentFiles\BT4
+```
+
+- Launch the app and select your ISO on first launch.
+- Choose **Internal**, then select **Install and Play**.
+- Data extracts to:
+
+```text
+D:\DevelopmentFiles\BT4\gamedata
+```
+
+### External Storage Setup
+- Launch the app and select the ISO on your external drive, usually `E:\`.
+- Choose **External**, then select **Install and Play**.
+- Data extracts to:
+
+```text
+E:\BT4\gamedata
+```
+
+- Keep the drive connected while playing.
+
+The ISO can be removed after extraction.
+
+### Online Play
+Online players need compatible BT4 game data and the same build.
+
+### Texture Packs
+- DDS and PNG replacement textures are supported.
+- Place them in the `textures` folder on your selected drive.
+
+Internal:
+
+```text
+D:\DevelopmentFiles\BT4\textures
+```
+
+External (if your drive is `E:`):
+
+```text
+E:\BT4\textures
+```
+
+Internal textures take priority.
+
+---
